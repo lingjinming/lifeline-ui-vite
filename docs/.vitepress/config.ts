@@ -1,22 +1,14 @@
 const sidebar = [
   {
-    text: "介绍",
+    text: "组件集合",
     items: [
-      { text: "安装", link: "/guide/installation" },
-      { text: "快速开始", link: "/guide/quickstart" }
+      { text: "Lbutton", link: "/examples/LButton" },
     ],
-  },
-  {
-    text: "介绍2",
-    items: [
-      { text: "安装", link: "/guide/installation" },
-      { text: "快速开始", link: "/guide/quickstart" }
-    ],
-  },
+  }
 ];
 const config = {
   // 站点名称
-  title: "基于element-plus二次封装组件",
+  title: "EarthUI",
   description: "A VitePress site",
   ignoreDeadLinks: true, // 最好加上，构建时会忽略md中的外链
   lastUpdatedText: "更新时间",
@@ -29,7 +21,7 @@ const config = {
     nav: [
       //右侧导航
       { text: "首页", link: "/" },
-      { text: "项目简介", link: "/guide/installation" },
+      { text: "安装", link: "/guide/installation" },
       {
         text: "更新日志",
         link: "/CHANGELOG.md",
