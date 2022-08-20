@@ -11,7 +11,7 @@
     "docs:serve": "vitepress serve docs",
     "test:run": "vitest run"
   },
-  "keywords": ["vite"],
+  "keywords": ["vite组件库脚手架"],
   "author": "",
   "license": "ISC",
   "homepage":"https://github.com/lingjinming/earth-ui-vite/blob/master/README.md",
