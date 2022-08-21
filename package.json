@@ -12,7 +12,7 @@
     "test:run": "vitest run"
   },
   "keywords": ["vite组件库脚手架"],
-  "author": "",
+  "author": "lingjinming",
   "license": "ISC",
   "homepage":"https://github.com/lingjinming/earth-ui-vite/blob/master/README.md",
   "repository":{
