@@ -1,6 +1,6 @@
 {
   "name": "l-earth-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "组件库开发框架",
   "private":false,
   "main": "index.ts",
