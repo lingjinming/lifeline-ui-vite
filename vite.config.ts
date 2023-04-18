@@ -5,7 +5,6 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // import { presetUno, presetAttributify, presetIcons } from "unocss";
 // import Unocss from "unocss/vite";
-
 const rollupOptions = {
   external: ["vue", "vue-router"],
   output: {
