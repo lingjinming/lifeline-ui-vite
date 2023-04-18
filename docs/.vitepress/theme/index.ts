@@ -1,5 +1,5 @@
 // import Theme from 'vitepress/dist/client/theme-default'
-import EarthUI from '../../../src/entry'
+import EarthUI from 'l-earth-ui/dist/earth-ui.esm'
 import DefaultTheme from "vitepress/theme"
 
 // 主题样式

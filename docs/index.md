@@ -7,7 +7,7 @@ titleTemplate: 一个Vue3组件库
 hero:
   name: EarthUI
   text: 一个Vue3组件库
-  tagline: 没啥特点仅供学习
+  tagline: 仅供学习
   image:
     src: /logo.png
     alt: EarthUI
