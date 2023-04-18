@@ -21,10 +21,10 @@
   ],
   "author": "lingjinming",
   "license": "ISC",
-  "homepage": "https://github.com/lingjinming/earth-ui-vite/blob/master/README.md",
+  "homepage": "https://github.com/lingjinming/lifeline-ui-vite/blob/master/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lingjinming/earth-ui-vite"
+    "url": "https://github.com/lingjinming/lifeline-ui-vite"
   },
   "dependencies": {
     "vue-demi": "latest",
