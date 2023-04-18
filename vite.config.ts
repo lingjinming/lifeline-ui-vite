@@ -42,7 +42,7 @@ export default defineConfig({
     cssCodeSplit: true,
     lib: {
       entry: "./src/entry.ts",
-      name: "lifeline-ui",
+      name: "LifeLineUI",
       fileName: "lifeline-ui",
       // 导出模块格式
       formats: ["esm", "umd", "iife"],
