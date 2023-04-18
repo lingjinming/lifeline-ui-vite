@@ -1,23 +1,23 @@
 ---
 layout: home
 
-title: EarthUI
-titleTemplate: 一个Vue3组件库
+title: lifeline-ui
+titleTemplate: 一个兼容Vue2和Vue3组件库
 
 hero:
-  name: EarthUI
-  text: 一个Vue3组件库
+  name: lifeline-ui
+  text: 一个兼容Vue2和Vue3组件库
   tagline: 仅供学习
   image:
     src: /logo.png
-    alt: EarthUI
+    alt: lifeline-ui
   actions:
     - theme: brand
       text: 开始
       link: /guide/installation
     # - theme: alt
     #   text: 在 Gitee 上查看
-    #   link: https://gitee.com/geeksdidi/EarthUIui
+    #   link: https://gitee.com/geeksdidi/lifeline-uiui
 
 features:
   - icon: 💡

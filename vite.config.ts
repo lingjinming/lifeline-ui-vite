@@ -17,7 +17,7 @@ const rollupOptions = {
 // https://vitejs.dev/config/
 
 export default defineConfig({
-  base: '/',
+  base: "/",
   plugins: [
     vue(),
     // createVuePlugin(),
@@ -30,13 +30,15 @@ export default defineConfig({
     //   presets: [presetUno(), presetAttributify(), presetIcons()],
     // }),
   ],
+  optimizeDeps: {
+    exclude: ["vue-demi"],
+  },
   // 添加库模式配置
-
   build: {
     rollupOptions,
-    minify: 'terser', // boolean | 'terser' | 'esbuild'
+    minify: "terser", // boolean | 'terser' | 'esbuild'
     sourcemap: true, // 输出单独 source文件
-    brotliSize: true,  // 生成压缩大小报告
+    brotliSize: true, // 生成压缩大小报告
     cssCodeSplit: true,
     lib: {
       entry: "./src/entry.ts",

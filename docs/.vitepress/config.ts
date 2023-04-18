@@ -8,7 +8,7 @@ const sidebar = [
 ];
 const config = {
   // 站点名称
-  title: "EarthUI",
+  title: "lifeline-ui",
   description: "A VitePress site",
   ignoreDeadLinks: true, // 最好加上，构建时会忽略md中的外链
   lastUpdatedText: "更新时间",

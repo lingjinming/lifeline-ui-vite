@@ -27,6 +27,7 @@
     "url": "https://github.com/lingjinming/earth-ui-vite"
   },
   "dependencies": {
+    "vue-demi": "latest",
     "@types/node": "^18.7.3",
     "@vitejs/plugin-vue": "^3.0.2",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
@@ -41,5 +42,14 @@
     "vite-plugin-vue2": "^2.0.2",
     "vitepress": "1.0.0-alpha.8",
     "vitepress-theme-demoblock": "1.4.2"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   }
 }
