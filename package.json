@@ -31,8 +31,6 @@
     "@types/node": "^18.7.3",
     "@vitejs/plugin-vue": "^3.0.2",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
-    "element-plus": "^2.2.13",
-    "element-ui": "^2.15.9",
     "vite": "^3.0.6",
     "vue": "^3.2.37",
     "vue-template-compiler": "^2.7.8"
