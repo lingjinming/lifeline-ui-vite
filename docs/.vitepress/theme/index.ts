@@ -1,5 +1,4 @@
 // import Theme from 'vitepress/dist/client/theme-default'
-import EarthUI from '../../../src/entry'
 import DefaultTheme from "vitepress/theme"
 
 // 主题样式
@@ -10,7 +9,6 @@ import Demo from 'vitepress-theme-demoblock/components/Demo.vue';
 export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
-    app.use(EarthUI)
     app.component('Demo', Demo)
     app.component('DemoBlock', DemoBlock)
   },
