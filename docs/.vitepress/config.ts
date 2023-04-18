@@ -2,7 +2,7 @@ const sidebar = [
   {
     text: "组件集合",
     items: [
-      { text: "Lbutton", link: "/examples/LButton" },
+      { text: "LButton", link: "/examples/LButton" },
     ],
   }
 ];

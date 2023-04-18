@@ -1,6 +1,6 @@
 {
   "name": "lifeline-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "兼容vue2和vue3的组件库",
   "private": false,
   "main": "index.ts",
@@ -21,10 +21,10 @@
   ],
   "author": "lingjinming",
   "license": "ISC",
-  "homepage": "https://github.com/lingjinming/earth-ui-vite/blob/master/README.md",
+  "homepage": "https://github.com/lingjinming/lifeline-ui-vite/blob/master/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lingjinming/earth-ui-vite"
+    "url": "https://github.com/lingjinming/lifeline-ui-vite"
   },
   "dependencies": {
     "vue-demi": "latest",

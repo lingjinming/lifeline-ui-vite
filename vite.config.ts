@@ -5,7 +5,6 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // import { presetUno, presetAttributify, presetIcons } from "unocss";
 // import Unocss from "unocss/vite";
-
 const rollupOptions = {
   external: ["vue", "vue-router"],
   output: {
@@ -42,8 +41,8 @@ export default defineConfig({
     cssCodeSplit: true,
     lib: {
       entry: "./src/entry.ts",
-      name: "EarthUi",
-      fileName: "earth-ui",
+      name: "LifeLineUI",
+      fileName: "lifeline-ui",
       // 导出模块格式
       formats: ["esm", "umd", "iife"],
     },
