@@ -1,10 +1,12 @@
 <template>
   <button
   :style="{
-    color:color
+    color
   }" 
   @click="handleClick"
-  >LButton</button>
+  >
+    <slot />
+</button>
 </template>
 <script lang="ts">
 import { defineComponent, PropType, h, isVue2 } from "vue-demi";

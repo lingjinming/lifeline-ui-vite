@@ -7,7 +7,7 @@
 
 ```vue
 <template>
-  <LButton>按钮</LButton>
+  <LButton />
   <LButton color="red">按钮</LButton>
 </template>
 
