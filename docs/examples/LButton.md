@@ -3,7 +3,7 @@
 
 ## LButton 用法
 
-:::demo 使用`color` 属性来定义 Button 的文字颜色。
+:::demo 使用 `color` 属性来定义 Button 的文字颜色。
 
 ```vue
 <template>
