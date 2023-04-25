@@ -1,4 +1,4 @@
-name: publish Npm
+name: Public Npm
 
 on:
   push:
@@ -15,15 +15,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
+      - uses: pnpm/action-setup@v2.1.0
         with:
           version: 7.2.1
       - name: Install modules
-        run: npm install
+        run: pnpm install
       - name: Build 
         run: npm run build 
       - name: 'Publish to the npm registry'
-        uses: npm publish
+        uses: primer/publish@3.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.JM_GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
