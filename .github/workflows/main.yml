@@ -23,7 +23,7 @@ jobs:
       - name: Build 
         run: pnpm run build 
       - name: 'Publish to the npm registry'
-        uses: primer/publish@3.0.0
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.JM_GITHUB_TOKEN }}
