@@ -3,6 +3,9 @@
   "version": "0.0.3",
   "description": "兼容vue2和vue3的组件库",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.ts",
   "files": [
     "src",
