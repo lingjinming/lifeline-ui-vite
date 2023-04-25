@@ -1,3 +1,4 @@
+@lingjiinming:registry=https://registry.npmjs.org/
 auto-install-peers=true
 strict-peer-dependencies=false
 v16.16.0
