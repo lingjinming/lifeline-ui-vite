@@ -4,15 +4,22 @@
       v-for="(item, i) in tabs"
       :key="i"
       :class="[
-        'tabItem',
+        'l-tabs-box-item',
         {
-          'act': activeNameNew == item.label
-        }
-        
+          act: activeNameNew == item.label,
+        },
       ]"
       @click="clickTab(item)"
     >
-      {{ item.label }}
+      <img class="tabImg" v-if="item.img" :src="item.img" />
+      <div class="">
+        <p>
+          {{ item.label }}
+        </p>
+        <p v-if="item.subTit">
+          {{ item.subTit }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -28,27 +35,31 @@ export default defineComponent({
         {
           label: "标签1",
           val: 1,
-          img:''
+          img: "",
+          subTit: "",
         },
         {
           label: "标签2",
           val: 2,
-          img:''
+          img: "",
+          subTit: "",
         },
       ],
       type: Array,
     },
-    activeName:{
-      default:'',
-      type:String
-    }
+    activeName: {
+      default: "",
+      type: String,
+    },
   },
   setup(props, ctx) {
-    let activeNameNew = props.activeName ? ref(props.activeName) : ref(props.tabs[0]['label'])
+    let activeNameNew = props.activeName
+      ? ref(props.activeName)
+      : ref(props.tabs[0]["label"]);
 
     let clickTab = (item) => {
       activeNameNew.value = item.label;
-      ctx.emit('tab-click',item)
+      ctx.emit("tab-click", item);
     };
 
     return {
@@ -60,13 +71,25 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.l-tabs-box{
+*{
+  box-sizing: border-box;
+}
+.l-tabs-box {
   display: flex;
 }
-.tabItem{
+.l-tabs-box-item {
+  position: relative;
+  display: flex;
   cursor: pointer;
+  padding: 0 20px;
+  align-items: center;
 }
-.act{
+.act {
   border-bottom: 1px solid red;
+}
+.tabImg {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 </style>

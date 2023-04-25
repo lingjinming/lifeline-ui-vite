@@ -12,12 +12,17 @@
 export default {
   data() {
     return {
+      activeName:'标签4',
       tabs: [
         {
           label: "标签3",
+          img:'../public/logo.png',
+          subTit:'111'
         },
         {
           label: "标签4",
+          img:'../public/logo.png',
+          subTit:'222'
         },
       ],
     };

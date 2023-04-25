@@ -25,7 +25,7 @@ const config = {
       { text: "安装", link: "/guide/installation" },
       {
         text: "更新日志",
-        link: "/CHANGELOG.md",
+        link: "/guide/CHANGELOG.md",
       },
     ],
     socialLinks: [
