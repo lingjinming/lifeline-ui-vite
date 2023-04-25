@@ -1,27 +1,20 @@
-name: Publish To NPM
+name: Publish Package to npmjs
+
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+    
 jobs:
-  publish:
-  
+  build:
     runs-on: ubuntu-latest
-
-    name: 'publish npm'
-
-    environment: npm
-
     steps:
-      - uses: actions/checkout@v2 
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
         with:
-          persist-credentials: false
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '16'
-          registry-url: https://registry.npmjs.org/
-
-      - name: publish 
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: npm publish
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: npm publish
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
