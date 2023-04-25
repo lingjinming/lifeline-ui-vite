@@ -3,6 +3,7 @@ const sidebar = [
     text: "组件集合",
     items: [
       { text: "LButton", link: "/examples/LButton" },
+      { text: "LTabs", link: "/examples/LTabs" },
     ],
   }
 ];

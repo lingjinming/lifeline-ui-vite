@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a as s}from"./app.2fa67aa2.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"CHANGELOG.md","lastUpdated":1660898340000}'),o={name:"CHANGELOG.md"},n=s("p",null,"#v1.0.0",-1),r=[n];function c(_,d,p,i,l,m){return a(),t("div",null,r)}const G=e(o,[["render",c]]);export{u as __pageData,G as default};
