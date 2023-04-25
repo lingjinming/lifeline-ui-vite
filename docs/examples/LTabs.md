@@ -17,7 +17,7 @@ export default {
           label: "标签3",
         },
         {
-          label: "标签4c",
+          label: "标签4",
         },
       ],
     };
