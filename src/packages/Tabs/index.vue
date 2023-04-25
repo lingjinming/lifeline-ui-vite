@@ -26,7 +26,6 @@
 <script lang="ts">
 import { emit } from "process";
 import { defineComponent, PropType, h, isVue2, ref, onMounted } from "vue-demi";
-
 export default defineComponent({
   name: "LTabs",
   props: {
