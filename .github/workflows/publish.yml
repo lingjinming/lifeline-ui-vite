@@ -14,8 +14,8 @@ jobs:
     environment: npm
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           version: 7.2.1
       - name: Install modules
@@ -23,7 +23,7 @@ jobs:
       - name: Build 
         run: npm run build 
       - name: 'Publish to the npm registry'
-        uses: primer/publish@3.0.0
+        uses: npm publish
         env:
           GITHUB_TOKEN: ${{ secrets.JM_GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
