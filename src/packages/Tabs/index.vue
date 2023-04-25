@@ -28,28 +28,28 @@ export default defineComponent({
         {
           label: "标签1",
           val: 1,
+          img:''
         },
         {
           label: "标签2",
           val: 2,
+          img:''
         },
       ],
       type: Array,
     },
     activeName:{
-      default:'标签',
+      default:'',
       type:String
     }
   },
   setup(props, ctx) {
-    let activeNameNew = ref(props.tabs[0]['label'])
+    let activeNameNew = props.activeName ? ref(props.activeName) : ref(props.tabs[0]['label'])
 
     let clickTab = (item) => {
       activeNameNew.value = item.label;
       ctx.emit('tab-click',item)
     };
-
-    
 
     return {
       activeNameNew,
