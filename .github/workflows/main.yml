@@ -23,6 +23,7 @@ jobs:
       - name: Build 
         run: pnpm run build 
       - name: 'Publish to the npm registry'
+        run: npm ci
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
