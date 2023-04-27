@@ -1,0 +1,23 @@
+{
+  "hash": "6b1f7fd9",
+  "browserHash": "20190579",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "74aeb47d",
+      "needsInterop": false
+    },
+    "vue-demi": {
+      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue-demi@0.13.11/node_modules/vue-demi/lib/index.mjs",
+      "file": "vue-demi.js",
+      "fileHash": "c9aee89c",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-JAJKZGLP": {
+      "file": "chunk-JAJKZGLP.js"
+    }
+  }
+}

@@ -3,6 +3,7 @@
 ## LTabs 用法
 
 :::demo 使用 `color` 属性来定义 Button 的文字颜色。
+  <l-tabs :tabs="tabs" @tab-click="handleClick"></l-tabs>
 
 ```vue
 <template>

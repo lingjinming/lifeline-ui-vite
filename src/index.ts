@@ -1,4 +1,17 @@
-import { createApp } from "vue-demi";
+import LButton from "./packages/Button/index.vue";
+import LTabs from "./packages/Tabs/index.vue";
 
-const app = createApp({});
-app.mount("#app");
+// 导出单独组件
+export { LButton, LTabs };
+
+const LifelineUI = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+};
+
+export default {
+  install(app: any, options: any) {
+    app.component("LButton", LButton);
+
+    app.component("LTabs", LTabs);
+  },
+};
