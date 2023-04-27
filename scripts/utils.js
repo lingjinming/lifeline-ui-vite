@@ -31,7 +31,7 @@ function switchVersion(version, vue) {
   copy('index.umd.js', version, vue)
   copy('index.es.js', version, vue)
   copy('index.cjs.js', version, vue)
-  copy('style.css', version, vue)
+  copy('index.css', version, vue)
 }
 
 module.exports.loadModule = loadModule
