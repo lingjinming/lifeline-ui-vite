@@ -42,9 +42,9 @@ const config = {
     config: (md) => {
       // 添加DemoBlock插槽
 
-      const { demoBlockPlugin } = require("vitepress-theme-demoblock");
+      // const { demoBlockPlugin } = require("vitepress-theme-demoblock");
 
-      md.use(demoBlockPlugin);
+      // md.use(demoBlockPlugin);
     },
   },
 };
