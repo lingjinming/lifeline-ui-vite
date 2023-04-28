@@ -1,23 +1,23 @@
 {
-  "hash": "6b1f7fd9",
-  "browserHash": "20190579",
+  "hash": "87fff7c0",
+  "browserHash": "7713b236",
   "optimized": {
     "vue": {
-      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "74aeb47d",
+      "fileHash": "0f753a64",
       "needsInterop": false
     },
     "vue-demi": {
-      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue-demi@0.13.11/node_modules/vue-demi/lib/index.mjs",
+      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue-demi@0.13.11_vue@3.2.47/node_modules/vue-demi/lib/index.mjs",
       "file": "vue-demi.js",
-      "fileHash": "c9aee89c",
+      "fileHash": "7230302d",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-JAJKZGLP": {
-      "file": "chunk-JAJKZGLP.js"
+    "chunk-HYMDUBGZ": {
+      "file": "chunk-HYMDUBGZ.js"
     }
   }
 }

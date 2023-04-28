@@ -146,9 +146,9 @@ import {
   withMemo,
   withModifiers,
   withScopeId
-} from "./chunk-JAJKZGLP.js";
+} from "./chunk-HYMDUBGZ.js";
 
-// node_modules/.pnpm/registry.npmmirror.com+vue-demi@0.13.11/node_modules/vue-demi/lib/index.mjs
+// node_modules/.pnpm/registry.npmmirror.com+vue-demi@0.13.11_vue@3.2.47/node_modules/vue-demi/lib/index.mjs
 var isVue2 = false;
 var isVue3 = true;
 var Vue2 = void 0;

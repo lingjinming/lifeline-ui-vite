@@ -1,40 +1,25 @@
-本节将介绍如何在项目中使用 lifeline-ui
+## LTabs 用法 
+使用 `color` 属性来定义 Button 的文字颜色。
+  <l-tabs></l-tabs>
+::: code-group
 
-## LTabs 用法
+  ```js [vue2]
+  /**
+   * @type {import('vitepress').UserConfig}
+   */
+  const config = {
+    // ...
+  }
+  export default config
+  ```
 
-:::demo 使用 `color` 属性来定义 Button 的文字颜色。
-  <l-tabs :tabs="tabs" @tab-click="handleClick"></l-tabs>
-
-```vue
-<template>
-  <l-tabs :tabs="tabs" @tab-click="handleClick"></l-tabs>
-</template>
-<script>
-export default {
-  data() {
-    return {
-      activeName:'标签4',
-      tabs: [
-        {
-          label: "标签3",
-          img:'../public/logo.png',
-          subTit:'111'
-        },
-        {
-          label: "标签4",
-          img:'../public/logo.png',
-          subTit:'222'
-        },
-      ],
-    };
-  },
-  methods: {
-    handleClick(tab) {
-      console.log(tab);
-    },
-  },
-};
-</script>
-```
+  ```ts [vue3]
+  import type { UserConfig } from 'vitepress'
+  const config: UserConfig = {
+    // ...
+  }
+  export default config
+  ```
 
 :::
+
