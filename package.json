@@ -38,9 +38,8 @@
     "postinstall": "node scripts/postinstall.js",
     "prepublishOnly": "npm run build",
     "release": "bumpp --commit --push --tag && npm publish",
-    "docs:dev": "vue-demi-switch 3 vue3 && vitepress dev docs",
-    "docs:build": "vue-demi-switch 3 vue3 && vitepress build docs",
-    "docs:preview": "vue-demi-switch 3 vue3 && vitepress preview docs"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs"
   },
   "keywords": [
     "兼容vue2和vue3的组件库"
