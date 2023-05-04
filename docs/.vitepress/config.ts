@@ -1,8 +1,9 @@
+
 const sidebar = [
   {
     text: "组件集合",
     items: [
-      { text: "LButton", link: "/examples/LButton.md" },
+      { text: "LButton", link: "/examples/LButton" },
       { text: "LTabs", link: "/examples/LTabs" },
     ],
   }
@@ -14,7 +15,7 @@ const config = {
   ignoreDeadLinks: true, // 最好加上，构建时会忽略md中的外链
   lastUpdatedText: "更新时间",
   lastUpdated: true, //显示最近更新时间
-  siteTitle: "vue-template",
+  siteTitle: "lifeline-ui",
 
   themeConfig: {
     outlineTitle: "目录",
@@ -40,7 +41,9 @@ const config = {
   markdown: {
     config: (md) => {
       // 添加DemoBlock插槽
+
       const { demoBlockPlugin } = require("vitepress-theme-demoblock");
+
       md.use(demoBlockPlugin);
     },
   },
