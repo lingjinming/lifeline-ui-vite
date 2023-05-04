@@ -26,7 +26,10 @@
     "types"
   ],
   "scripts": {
+    "docs:dev": "vitepress dev docs",
     "build": "npm run clean && run-s build:*",
+    "docs:build": "vitepress build docs && vitepress preview docs",
+    
     "build:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground build",
     "build:2.7": "vue-demi-switch 2.7 && pnpm --filter vue2.7-playground build",
     "build:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground build",
@@ -37,9 +40,7 @@
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix --ignore-path .gitignore",
     "postinstall": "node scripts/postinstall.js",
     "prepublishOnly": "npm run build",
-    "release": "bumpp --commit --push --tag && npm publish",
-    "docs:dev": "vitepress dev docs",
-    "build:docs": "vitepress build docs && vitepress preview docs"
+    "release": "bumpp --commit --push --tag && npm publish"
   },
   "keywords": [
     "兼容vue2和vue3的组件库"
