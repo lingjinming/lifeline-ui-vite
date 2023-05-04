@@ -1,25 +1,26 @@
 ## LTabs 用法 
 使用 `color` 属性来定义 Button 的文字颜色。
-  <l-tabs></l-tabs>
-::: code-group
+:::demo
+```vue
+  <template>
+      <l-tabs :tabs='tabs'></l-tabs>
+  </template>
+  <script>
+  export default{
+    data() {
+      return{
+        tabs:[
+          {label:'1'},
+          {label:'2'},
+        ]
+      }
+    },
+  };
+  </script>
 
-  ```js [vue2]
-  /**
-   * @type {import('vitepress').UserConfig}
-   */
-  const config = {
-    // ...
-  }
-  export default config
-  ```
-
-  ```ts [vue3]
-  import type { UserConfig } from 'vitepress'
-  const config: UserConfig = {
-    // ...
-  }
-  export default config
-  ```
-
+```
 :::
+
+
+
 
