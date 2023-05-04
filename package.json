@@ -39,7 +39,7 @@
     "prepublishOnly": "npm run build",
     "release": "bumpp --commit --push --tag && npm publish",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs --ignore-scripts"
+    "build:docs": "vitepress build docs && vitepress preview docs"
   },
   "keywords": [
     "兼容vue2和vue3的组件库"
