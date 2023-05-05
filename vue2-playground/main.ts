@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import LifelineUI from '../src/index'
-import App from './App.vue'
+import App from './App.vue';
+import '@public/icon/iconfont.css'
 
 console.warn('Vue version:', Vue.version)
 Vue.config.productionTip = false

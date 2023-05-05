@@ -2,6 +2,7 @@ import * as path from 'path'
 import { defineConfig } from 'vite'
 import { isVue2 } from 'vue-demi'
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import { resolve } from 'path';
 
 const outputName = 'index'
 export const defaultPlugins = [

@@ -10,6 +10,7 @@ export const viteVue3Config = defineConfig({
   },
   resolve: {
     alias: {
+      '@public':resolve(__dirname, '../public/'),
       'vue': resolve(__dirname, './node_modules/vue/dist/vue.runtime.esm-browser.js'),
       'vue-demi':resolve(__dirname, '../node_modules/vue-demi/lib/v3/index.mjs')
     },

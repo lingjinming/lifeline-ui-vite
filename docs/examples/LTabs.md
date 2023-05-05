@@ -1,5 +1,4 @@
 ## LTabs 用法 
-使用 `color` 属性来定义 Button 的文字颜色。
 :::demo
 ```vue
   <template>

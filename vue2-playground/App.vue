@@ -10,6 +10,7 @@ console.warn(`Vue env: Vue3:${isVue3} -- Vue2: ${isVue2}`);
 <template>
   <div>
     <span>{{ Vue2Version }}</span>
+    <l-button></l-button>
     <l-tabs></l-tabs>
   </div>
 </template>
