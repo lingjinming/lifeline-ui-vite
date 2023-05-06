@@ -12,14 +12,8 @@ export const defaultPlugins = [
 ]
 // https://vitejs.dev/config/
 export const baseBuildConfig = defineConfig({
-  base:'./',
   server:{
     hmr: { overlay: false },
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src/'),
-    },
   },
   build: {
     outDir: path.resolve(__dirname, `./dist/${isVue2 ? 'v2' : 'v3'}`),
