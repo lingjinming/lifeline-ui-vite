@@ -40,9 +40,7 @@ export default defineComponent({
 
 <style scoped>
 button {
-  border-radius: 5px;
-  padding: 2px 10px;
-  background: rgb(0, 110, 255);
+  background: var(--baseBgColor);
   margin-right: 10px;
 }
 </style>
