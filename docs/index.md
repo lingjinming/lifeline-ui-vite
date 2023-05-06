@@ -21,7 +21,7 @@ hero:
 
 features:
   - icon: 💡
-    title: Vue3组件库
+    title: Vue组件库
     details: 基于vite打包和TypeScript开发
   - icon: 📦
     title: 仅供学习使用

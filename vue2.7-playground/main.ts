@@ -1,5 +1,6 @@
 import Vue, { version } from 'vue'
 import LifelineUI from '../src/index'
+
 import App from './App.vue'
 
 console.warn('Vue version: ', version)

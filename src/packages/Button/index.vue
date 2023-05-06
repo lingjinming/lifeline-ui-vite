@@ -1,3 +1,15 @@
+<template>
+  <button
+    :style="{
+      color,
+    }"
+    @click="clickBtn"
+  >
+{{ count }}
+    <i v-if="icon" class="l-iconfont" :class="'l-icon-'+icon"></i>
+    <slot />
+  </button>
+</template>
 <script lang="ts">
 import { defineComponent, PropType, h, isVue2, ref } from "vue-demi";
 
@@ -6,6 +18,10 @@ export default defineComponent({
   props: {
     color: {
       default: "white",
+      type: String,
+    },
+    icon: {
+      default: "shuijiance",
       type: String,
     },
   },
@@ -21,22 +37,10 @@ export default defineComponent({
   },
 });
 </script>
-<template>
-  <button
-    :style="{
-      color,
-    }"
-    @click="clickBtn"
-  >
-{{ count }}
-    <slot />
-  </button>
-</template>
+
 <style scoped>
 button {
-  border-radius: 5px;
-  padding: 2px 10px;
-  background: rgb(0, 110, 255);
+  background: var(--baseBgColor);
   margin-right: 10px;
 }
 </style>

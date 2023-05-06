@@ -1,3 +1,6 @@
+import './assets/theme/reset.scss'
+import './assets/theme/index.scss'
+
 import LButton from "./packages/Button/index.vue";
 import LTabs from "./packages/Tabs/index.vue";
 

@@ -11,9 +11,9 @@
       ]"
       @click="clickTab(item)"
     >
-      <img class="tabImg" v-if="item.img" :src="item.img" />
-      <div class="">
-        <p>
+      <img class="l-tabs-box-img" v-if="item.img" :src="item.img" />
+      <div class="l-tabs-box-content">
+        <p class="">
           {{ item.label }}
         </p>
         <p v-if="item.subTit">
@@ -31,16 +31,16 @@ export default defineComponent({
     tabs: {
       default: [
         {
-          label: "标签1",
+          label: "netsjs",
           val: 1,
-          img: "",
-          subTit: "",
+          img:'https://www.nestjs.com.cn/img/logo.png',
+          subTit: "netsjs",
         },
         {
-          label: "标签2",
+          label: "netsjs2",
           val: 2,
-          img: "",
-          subTit: "",
+          img:'https://www.nestjs.com.cn/img/logo.png',
+          subTit: "netsjs",
         },
       ],
       type: Array,
@@ -68,26 +68,38 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-*{
-  box-sizing: border-box;
-}
+<style lang="scss" scoped>
 .l-tabs-box {
   display: flex;
+  &-item {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    align-items: center;
+    color: var(--baseTxtColor);
+
+    &.act::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--baseBgColor);
+    }
+
+
+  }
+  &-img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+  }
+
+
 }
-.l-tabs-box-item {
-  position: relative;
-  display: flex;
-  cursor: pointer;
-  padding: 0 20px;
-  align-items: center;
-}
-.act {
-  border-bottom: 1px solid red;
-}
-.tabImg {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-}
+
+
+
 </style>
