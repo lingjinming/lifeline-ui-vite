@@ -2,7 +2,7 @@ import DefaultTheme from "vitepress/theme"
 import LifelineUI from '../../../src/index'
 
 
-import '//at.alicdn.com/t/c/font_3187951_bxx1dr0r34w.css'
+// import '//at.alicdn.com/t/c/font_3187951_bxx1dr0r34w.css'
 
 // 主题样式
 import 'vitepress-theme-demoblock/dist/theme/styles/index.css'

@@ -24,7 +24,7 @@
     "scripts",
     "dist",
     "types",
-    "src"
+    "public/icon/"
   ],
   "scripts": {
     "docs:dev": "vitepress dev docs",

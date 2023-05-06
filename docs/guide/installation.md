@@ -26,7 +26,7 @@ $ yarn add lifeline-ui
 :::danger 由于组件库使用了iconfont，需要单独引入字体库线上地址方可使用图标，或者引入本地文件
 ```html
 <link  href="//at.alicdn.com/t/c/font_3187951_bxx1dr0r34w.css">
-<link  href="lifeline-ui/public/icon/iconfont.css">
+<link  href="lifeline-ui/icon/iconfont.css">
 ```
 :::
 
