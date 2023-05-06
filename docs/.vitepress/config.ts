@@ -17,7 +17,9 @@ const config = {
   lastUpdatedText: "更新时间",
   lastUpdated: true, //显示最近更新时间
   siteTitle: "lifeline-ui",
-
+  head: [
+    ['link', { rel:'stylesheet', href: `//at.alicdn.com/t/c/font_3187951_bxx1dr0r34w.css` }]
+  ],
   themeConfig: {
     outlineTitle: "目录",
     sidebar,
