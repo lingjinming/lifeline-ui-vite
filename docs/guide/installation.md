@@ -23,7 +23,7 @@ $ npm i lifeline-ui --save
 $ yarn add lifeline-ui
 ```
 :::
-:::danger 由于组件库使用了iconfont，需要单独引入字体库线上地址方可使用图标，或者引入本地文件
+:::danger 由于组件库使用了iconfont，需要单独引入字体库线上地址或者引入本地图标文件方可使用图标。
 ```html
 <link  href="//at.alicdn.com/t/c/font_3187951_bxx1dr0r34w.css">
 <link  href="lifeline-ui/icon/iconfont.css">
@@ -31,15 +31,20 @@ $ yarn add lifeline-ui
 :::
 
 ### 项目中引入
-```js
+:::code-group
+```js [vue-cli]
 import LifelineUI from 'lifeline-ui'
-app.use(LifelineUI)
+import '../node_modules/lifeline-ui/dist/index.css'
+
+Vue.use(LifelineUI)
 
 ```
+```js [vite]
+import LifelineUI from 'lifeline-ui'
+import '../node_modules/lifeline-ui/dist/index.css'
 
-## 浏览器直接引入
+createApp.use(LifelineUI).mount('#app')
 
-```js
-<script src="lifeline-ui/dist/index.es.js"></script>
 ```
+:::
 

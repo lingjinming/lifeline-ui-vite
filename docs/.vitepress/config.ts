@@ -1,11 +1,13 @@
 
 const sidebar = [
   {
+    text: "图标集合", link:"https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.22&manage_type=myprojects&projectId=3187951&keyword=&project_type=&page=" 
+  },
+  {
     text: "组件集合",
     items: [
-      { text: "图标集合", link:"https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.22&manage_type=myprojects&projectId=3187951&keyword=&project_type=&page=" },
-      { text: "LButton", link: "/examples/LButton" },
-      { text: "LTabs", link: "/examples/LTabs" },
+      { text: "LButton 按钮", link: "/examples/l-button" },
+      { text: "LTabs 标签页", link: "/examples/l-tabs" },
     ],
   }
 ];
@@ -36,9 +38,9 @@ const config = {
       //右上角图标和链接，icon 可用svg 配置
       {
         icon: "github",
-        link: "https://github.com/Yinzhuo19970516/vue-template",
+        link: "https://github.com/lingjinming/lifeline-ui-vite",
       },
-      { icon: "slack", link: "https://juejin.cn/user/1011206428301774" },
+      // { icon: "slack", link: "https://juejin.cn/user/1011206428301774" },
     ],
   },
   markdown: {
