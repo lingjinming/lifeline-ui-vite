@@ -2,13 +2,13 @@
 :::demo
 ```vue
   <template>
-      <l-tabs @tab-click='handleClick'></l-tabs>
+      <l-tabs style="width:250px" @tab-click='handleClick'></l-tabs>
   </template>
   <script>
   export default{
     methods:{
       handleClick(tab){
-        alert(JSON.stringify(tab))
+        console.log(tab)
       }
     }
   };

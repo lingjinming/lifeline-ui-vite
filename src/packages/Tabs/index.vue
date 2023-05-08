@@ -32,15 +32,16 @@ export default defineComponent({
       default: [
         {
           label: "netsjs",
-          val: 1,
           img:'https://www.nestjs.com.cn/img/logo.png',
           subTit: "netsjs",
+          params: null
+
         },
         {
           label: "netsjs2",
-          val: 2,
           img:'https://www.nestjs.com.cn/img/logo.png',
           subTit: "netsjs",
+          params: null
         },
       ],
       type: Array,
@@ -71,6 +72,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .l-tabs-box {
   display: flex;
+  justify-content: space-around;
   &-item {
     position: relative;
     display: flex;
@@ -78,7 +80,6 @@ export default defineComponent({
     padding: 10px 20px;
     align-items: center;
     color: var(--baseTxtColor);
-
     &.act::after {
       content: '';
       position: absolute;
@@ -87,8 +88,13 @@ export default defineComponent({
       width: 100%;
       height: 1px;
       background: var(--baseBgColor);
+      animation: grow .3s 1;
+      @keyframes grow {
+        0%{
+          width: 0%;
+        }
+      }
     }
-
 
   }
   &-img {
@@ -96,7 +102,6 @@ export default defineComponent({
     height: 35px;
     margin-right: 10px;
   }
-
 
 }
 
