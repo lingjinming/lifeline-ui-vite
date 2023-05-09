@@ -2,12 +2,17 @@ import * as path from 'path'
 import { defineConfig } from 'vite'
 import { isVue2 } from 'vue-demi'
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import requireTransform from 'vite-plugin-require-transform';
+
 import { resolve } from 'path';
 
 const outputName = 'index'
 export const defaultPlugins = [
   vueJsx({
     // options are passed on to @vue/babel-plugin-jsx
+  }),
+  requireTransform({
+    fileRegex:/.ts$|.tsx$|.vue$/
   })
 ]
 // https://vitejs.dev/config/
