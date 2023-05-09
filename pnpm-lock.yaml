@@ -15,6 +15,7 @@ importers:
       terser: 5.4.0
       typescript: ~4.7.4
       vite: ^3.0.6
+      vite-plugin-require-transform: ^1.0.12
       vitepress: 1.0.0-alpha.75
       vitepress-theme-demoblock: 2.0.2
       vue-demi: ^0.13.11
@@ -36,6 +37,7 @@ importers:
       terser: 5.4.0
       typescript: 4.7.4
       vite: 3.2.6_vgf3ie76qb2gw7h7otzzr2ussq
+      vite-plugin-require-transform: 1.0.12
       vitepress: 1.0.0-alpha.75_vgf3ie76qb2gw7h7otzzr2ussq
       vitepress-theme-demoblock: 2.0.2_vgf3ie76qb2gw7h7otzzr2ussq
       vue-template-compiler: 2.7.14
@@ -5201,6 +5203,17 @@ packages:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
+    dev: true
+
+  /vite-plugin-require-transform/1.0.12:
+    resolution: {integrity: sha512-ILEYBgEIoCryF11/fQqKp4X/zAoZazkbQDT1MHEwUr1s4l2npd5NKSj4SPPFSw4Y9wegHL63/UCYfxYjfWer8g==}
+    dependencies:
+      '@babel/generator': 7.21.5
+      '@babel/parser': 7.21.8
+      '@babel/traverse': 7.21.5
+      '@babel/types': 7.21.5
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /vite-plugin-vue2/2.0.3_d7blmaerxcjnr4pvcrshdqsyku:
