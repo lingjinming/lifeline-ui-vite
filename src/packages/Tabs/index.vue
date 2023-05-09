@@ -25,40 +25,15 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType, h, isVue2, ref, onMounted } from "vue-demi";
+import { ILTabs } from "../../../types/l-tabs";
+
+
 export default defineComponent({
   name: "LTabs",
   props: {
     tabs: {
-      default: [
-        {
-          label: "netsjs",
-          img:'https://www.nestjs.com.cn/img/logo.png',
-          subTit: "netsjs",
-          params: {
-            key1:'val1'
-          }
-
-        },
-        {
-          label: "netsjs2",
-          img:'https://www.nestjs.com.cn/img/logo.png',
-          subTit: "netsjs",
-          params: {
-            key2:'val2'
-          }
-        },
-        {
-          label: "netsjs3",
-          img:'https://www.nestjs.com.cn/img/logo.png',
-          subTit: "netsjs",
-          params: {
-            key1:'val1',
-            key2:'val2'
-          }
-        },
-      ],
-
-      type: Array,
+      default: [],
+      type: Object as PropType<ILTabs>
     },
     activeName: {
       default: "",
