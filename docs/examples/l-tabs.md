@@ -4,10 +4,45 @@
 
 ```vue
 <template>
-  <l-tabs style="width:450px;height:90px" @tab-click="handleClick"></l-tabs>
+  <l-tabs
+    style="width:450px;height:90px"
+    :tabs="tabs"
+    @tab-click="handleClick"
+  ></l-tabs>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      tabs: [
+        {
+          label: "netsjs",
+          img: "https://www.nestjs.com.cn/img/logo.png",
+          subTit: "netsjs",
+          params: {
+            key1: "val1",
+          },
+        },
+        {
+          label: "netsjs2",
+          img: "https://www.nestjs.com.cn/img/logo.png",
+          subTit: "netsjs",
+          params: {
+            key2: "val2",
+          },
+        },
+        {
+          label: "netsjs3",
+          img: "https://www.nestjs.com.cn/img/logo.png",
+          subTit: "netsjs",
+          params: {
+            key1: "val1",
+            key2: "val2",
+          },
+        },
+      ],
+    };
+  },
   methods: {
     handleClick(tab) {
       console.log(tab);
