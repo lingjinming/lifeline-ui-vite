@@ -4,7 +4,7 @@
 
 ```vue
 <template>
-  <l-tabs style="height:90px" :tabs="tabs" @tab-click="handleClick"></l-tabs>
+  <l-tabs style="height:90px" activeName="netsjs2" :tabs="tabs" @tab-click="handleClick"></l-tabs>
 </template>
 <script>
 export default {
