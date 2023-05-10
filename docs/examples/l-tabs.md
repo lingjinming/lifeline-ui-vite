@@ -4,7 +4,12 @@
 
 ```vue
 <template>
-  <l-tabs style="height:90px" activeName="netsjs2" :tabs="tabs" @tab-click="handleClick"></l-tabs>
+  <l-tabs
+    style="height:90px"
+    activeName="netsjs2"
+    :tabs="tabs"
+    @tab-click="handleClick"
+  ></l-tabs>
 </template>
 <script>
 export default {
@@ -47,24 +52,24 @@ export default {
 
 :::
 
-## Tabs Attributes
+## Tabs 属性
 
-| name       |    des     |    type     | optional |     default      |
+| 属性名     |    描述    |    类型     | 可选参数 |      默认值      |
 | ---------- | :--------: | :---------: | :------: | :--------------: |
 | activeName | 选中项名称 |   String    |    --    | tabs[0]['label'] |
 | tabs       |  tab 数据  | [TabsItems] |    --    |        []        |
 
 ## TabsItems Attributes
 
-| name   |   des    |  type  | optional | default |
-| ------ | :------: | :----: | :------: | :-----: |
-| label  |   名称   | String |    --    |   --    |
-| subTit |  副标题  | String |    --    |   --    |
-| img    | 图片路径 | String |    --    |   --    |
-| params | 额外参数 | Object |    --    |   --    |
+| 属性名 |   描述   |  类型  | 可选参数 | 默认值 |
+| ------ | :------: | :----: | :------: | :----: |
+| label  |   名称   | String |    --    |   --   |
+| subTit |  副标题  | String |    --    |   --   |
+| img    | 图片路径 | String |    --    |   --   |
+| params | 额外参数 | Object |    --    |   --   |
 
 ## Tabs Events
 
-| name      |     des      |   callback    |
+| 事件名    |     描述     |   回调参数    |
 | --------- | :----------: | :-----------: |
 | tab-click | tab 点击事件 | 当前 tab 实例 |

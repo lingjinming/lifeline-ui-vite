@@ -4,7 +4,8 @@ import { isVue2, isVue3, reactive, ref } from 'vue-demi'
 const versionStr = isVue2 ? 'Vue2' : 'Vue3'
 const Vue2Version = ref(versionStr)
 const tabs = reactive([
-  {label:'label1'}
+  {label:'122'},
+  {subTit:'122'},
 ])
 console.warn(`Vue env: Vue3:${isVue3} -- Vue2: ${isVue2}`)
 </script>

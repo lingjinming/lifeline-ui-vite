@@ -25,23 +25,10 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType, h, isVue2, ref, onMounted } from "vue-demi";
-import { ILTabs } from "../../../types/l-tabs";
-
-
+import {props} from "../../../types/l-tabs.d";
 export default defineComponent({
   name: "LTabs",
-  props: {
-    tabs: {
-      default: [
-        {label:'default label'}
-      ],
-      type: Object as PropType<ILTabs>
-    },
-    activeName: {
-      default: "",
-      type: String,
-    }
-  },
+  props,
   setup(props, ctx) {
     let activeNameNew = props.activeName
       ? ref(props.activeName)
