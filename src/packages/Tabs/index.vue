@@ -32,8 +32,10 @@ export default defineComponent({
   name: "LTabs",
   props: {
     tabs: {
-      default: [],
-      // type: Object as PropType<ILTabs>
+      default: [
+        {label:'default label'}
+      ],
+      type: Object as PropType<ILTabs>
     },
     activeName: {
       default: "",
