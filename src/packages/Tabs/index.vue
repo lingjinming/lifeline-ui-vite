@@ -33,7 +33,7 @@ export default defineComponent({
   props: {
     tabs: {
       default: [],
-      type: Object as PropType<ILTabs>
+      // type: Object as PropType<ILTabs>
     },
     activeName: {
       default: "",
@@ -60,10 +60,14 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .l-tabs-box {
+  position: relative;
+  background: #fff;
+  border-radius: var(--baseBorderRadius);
   display: flex;
   justify-content: space-around;
   gap: 15px;
   padding: 0 20px;
+  margin-bottom: 20px;
   &-item {
     position: relative;
     flex: 1;
@@ -72,6 +76,7 @@ export default defineComponent({
     min-height: 80px;
     align-items: center;
     color: var(--baseTxtColor);
+    padding-left: 20px;
     &:hover::after,
     &.act::after {
       content: '';
@@ -110,11 +115,8 @@ export default defineComponent({
   &-img {
     width: 45px;
     height: 45px;
-    margin-right: 10px;
+    margin-right: 15px;
   }
 
 }
-
-
-
 </style>
