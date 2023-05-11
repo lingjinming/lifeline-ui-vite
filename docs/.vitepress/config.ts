@@ -1,7 +1,7 @@
 
 const sidebar = [
   {
-    text: "图标集合", link:"https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.22&manage_type=myprojects&projectId=3187951&keyword=&project_type=&page=" 
+    text: "图标集合", link:"https://lifelineicon.pages.dev/" 
   },
   {
     text: "组件集合",
