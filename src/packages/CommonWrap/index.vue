@@ -25,7 +25,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType, h, isVue2, ref, onMounted } from "vue-demi";
-interface ILTabItem {
+export interface ILTabs {
   label: String;
   img?: String;
   subTit?: String;
@@ -35,22 +35,20 @@ export default defineComponent({
   name: "LTabs",
   props: {
     tabs: {
-      default(){
-        return [{ label: "default label" }]
-      },
-      type: Array as () => PropType<ILTabItem[]>
+      default: [{ label: "default label" }],
+      type: Array as () => PropType<ILTabs>,
     },
     activeName: {
       default: "",
       type: String,
     },
   },
-  setup(props:any, ctx) {
+  setup(props, ctx) {
     let activeNameNew = props.activeName
       ? ref(props.activeName)
       : ref(props.tabs[0]["label"]);
 
-    let clickTab = (item:ILTabItem) => {
+    let clickTab = (item:ILTabs) => {
       activeNameNew.value = item.label;
       ctx.emit("tab-click", item);
     };
@@ -78,9 +76,10 @@ export default defineComponent({
     flex: 1;
     display: flex;
     cursor: pointer;
-    padding: 15px 20px;
+    min-height: 80px;
     align-items: center;
     color: var(--baseTxtColor);
+    padding-left: 20px;
     &:hover::after,
     &.act::after {
       content: "";
@@ -105,17 +104,14 @@ export default defineComponent({
     h3 {
       margin: 0;
       padding: 0;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 25px;
-      color: var(--baseTxtColor);
-
     }
     p {
       margin: 0;
       padding: 0;
       font-size: 16px;
       line-height: 20px;
-      color: var(--baseSubTxtColor);
     }
   }
   &-img {

@@ -1,21 +1,8 @@
-import { ExtractPropTypes, PropType } from "vue-demi";
+import LTabs from '../src/packages/Tabs/index.vue'
 
-export interface ILTabs {
-  label: String;
-  img?: String;
-  subTit?: String;
-  params?: any;
-}
-
-export const props = {
-  tabs: {
-    default: [{ label: "default label" }],
-    type: Array as () => PropType<ILTabs>
-  },
-  activeName: {
-    default: "",
-    type: String,
+declare module 'vue' {
+  export interface GlobalComponents {
+    LTabs:typeof LTabs
   }
 }
-
-export type LTabsProps = ExtractPropTypes<typeof props>;
+export {}

@@ -5,7 +5,6 @@
 ```vue
 <template>
   <l-tabs
-    style="height:90px"
     activeName="netsjs2"
     :tabs="tabs"
     @tab-click="handleClick"

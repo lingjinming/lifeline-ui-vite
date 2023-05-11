@@ -6,6 +6,7 @@
     "declaration":true
   },
   "include": [
+    "types/*.ts",
     "vite.config.ts",
     "vite.vue2.config.ts",
     "vite.vue3.config.ts"
