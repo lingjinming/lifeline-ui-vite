@@ -6,11 +6,10 @@
 <template>
   <l-button>插槽内容</l-button>
   <l-button lIcon="wendu" />
-  <l-button isCircle color="#fff" name="按钮" />
+  <l-button isCircle color="red" name="按钮" />
   <l-button color="#fff" bgColor="red" lIcon="jia" name="新增" />
-  <l-button color="#fff" rIcon="shezhi" name="设置" />
+  <l-button rIcon="shezhi" name="设置" />
   <l-button
-    color="#fff"
     lIcon="jia"
     rIcon="shezhi"
     name="导出"

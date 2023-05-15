@@ -8,6 +8,7 @@ const sidebar = [
     items: [
       { text: "LButton 按钮", link: "/examples/l-button" },
       { text: "LTabs 标签页", link: "/examples/l-tabs" },
+      { text: "LCommonWrap 通用容器", link: "/examples/l-common-wrap" },
     ],
   }
 ];

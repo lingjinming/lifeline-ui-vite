@@ -1,23 +1,23 @@
 {
-  "hash": "ec845446",
-  "browserHash": "fe2ec97e",
+  "hash": "735bb562",
+  "browserHash": "2471e99d",
   "optimized": {
     "vue": {
-      "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "src": "../../../../node_modules/.pnpm/vue@3.3.2/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "66cb8d4e",
+      "fileHash": "2b223320",
       "needsInterop": false
     },
     "vue-demi": {
       "src": "../../../../node_modules/.pnpm/vue-demi@0.13.11/node_modules/vue-demi/lib/index.mjs",
       "file": "vue-demi.js",
-      "fileHash": "b3063539",
+      "fileHash": "5635e381",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-HYMDUBGZ": {
-      "file": "chunk-HYMDUBGZ.js"
+    "chunk-H62CSQIR": {
+      "file": "chunk-H62CSQIR.js"
     }
   }
 }

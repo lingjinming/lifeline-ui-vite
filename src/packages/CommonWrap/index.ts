@@ -1,12 +1,12 @@
 import { App } from "vue-demi";
-import LTabs from "./index.vue";
+import LCommonWrap from "./index.vue";
 
 // 导出单独组件
-export { LTabs };
+export { LCommonWrap };
 
 // 实现install方法
 export default {
     install(app:App){
-        app.component(LTabs.name,LTabs)
+        app.component(LCommonWrap.name,LCommonWrap)
     }
 };

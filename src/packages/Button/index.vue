@@ -22,11 +22,11 @@ export default defineComponent({
   name: "LButton",
   props: {
     color: {
-      default: "white",
+      default: "#919191",
       type: String,
     },
     bgColor: {
-      default: "#2395ff",
+      default: "#fff",
       type: String,
     },
     lIcon: {
@@ -69,12 +69,16 @@ export default defineComponent({
   height: 45px;
   line-height: 45px;
   padding: 0 ;
-  background: var(--baseBtnBgColor);
   &-circle{
     border-radius: 50%;
   }
   &-span{
     margin: 0 5px;
+  }
+  &:hover{
+    background: var(--baseBtnBgColor) !important;
+    color: #fff !important;
+    transform: scale(1.05);
   }
 }
 </style>

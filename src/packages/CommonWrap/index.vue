@@ -1,29 +1,14 @@
 <template>
-  <div class="l-tabs-box">
-    <div
-      v-for="(item, i) in tabs"
-      :key="i"
-      :class="[
-        'l-tabs-box-item',
-        {
-          act: activeNameNew == item.label,
-        },
-      ]"
-      @click="clickTab(item)"
-    >
-      <img class="l-tabs-box-img" v-if="item.img" :src="item.img" />
-      <div class="l-tabs-box-content">
-        <h3>
-          {{ item.label }}
-        </h3>
-        <p v-if="item.subTit">
-          {{ item.subTit }}
-        </p>
-      </div>
-    </div>
+  <div class="l-common-wrap">
+    <section class="l-common-wrap-tit">
+      <h4>{{tit}}</h4>
+    </section>
+    <section class="l-common-wrap-con">
+      <slot></slot>
+    </section>
   </div>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent, PropType, h, isVue2, ref, onMounted } from "vue-demi";
 export interface ILTabs {
   label: String;
@@ -31,93 +16,31 @@ export interface ILTabs {
   subTit?: String;
   params?: any;
 }
-export default defineComponent({
-  name: "LTabs",
-  props: {
-    tabs: {
-      default: [{ label: "default label" }],
-      type: Array as () => PropType<ILTabs>,
-    },
-    activeName: {
-      default: "",
-      type: String,
-    },
-  },
-  setup(props, ctx) {
-    let activeNameNew = props.activeName
-      ? ref(props.activeName)
-      : ref(props.tabs[0]["label"]);
-
-    let clickTab = (item:ILTabs) => {
-      activeNameNew.value = item.label;
-      ctx.emit("tab-click", item);
-    };
-
-    return {
-      activeNameNew,
-      clickTab,
-    };
-  },
-});
+defineProps({
+  tit:{
+    type:String,
+    default:'默认标题'
+  }
+})
 </script>
 
 <style lang="scss" scoped>
-.l-tabs-box {
+.l-common-wrap {
   position: relative;
   background: #fff;
   border-radius: var(--baseBorderRadius);
-  display: flex;
-  justify-content: space-around;
-  gap: 15px;
-  padding: 0 20px;
-  margin-bottom: 20px;
-  &-item {
+  &-tit{
     position: relative;
-    flex: 1;
-    display: flex;
-    cursor: pointer;
-    min-height: 80px;
-    align-items: center;
-    color: var(--baseTxtColor);
-    padding-left: 20px;
-    &:hover::after,
-    &.act::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--baseColor);
-      animation: grow 0.3s 1;
-      @keyframes grow {
-        0% {
-          width: 0%;
-        }
-      }
+
+    h4{
+      height: 45px;
+      line-height: 45px;
+      padding-left: 20px;
     }
   }
-  &-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    h3 {
-      margin: 0;
-      padding: 0;
-      font-size: 20px;
-      line-height: 25px;
-    }
-    p {
-      margin: 0;
-      padding: 0;
-      font-size: 16px;
-      line-height: 20px;
-    }
-  }
-  &-img {
-    width: 45px;
-    height: 45px;
-    margin-right: 15px;
+  &-con{
+    padding: 20px;
+    height: calc(100% - 45px);
   }
 }
 </style>
