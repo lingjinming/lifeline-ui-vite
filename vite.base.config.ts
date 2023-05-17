@@ -18,7 +18,12 @@ export const defaultPlugins = [
 // https://vitejs.dev/config/
 export const baseBuildConfig = defineConfig({
   server:{
-    hmr: { overlay: false },
+    
+    hmr: { 
+      host:'0.0.0.0',
+      overlay: false 
+    },
+
   },
   build: {
     outDir: path.resolve(__dirname, `./dist/${isVue2 ? 'v2' : 'v3'}`),
