@@ -1,86 +1,76 @@
 {
-  "name": "lifeline-ui",
-  "version": "0.2.2",
-  "description": "兼容vue2和vue3的组件库",
-  "private": false,
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
-  "types": "./types/index.d.ts",
-  "style": "dist/style.css",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+    "name": "lifeline-ui",
+    "version": "0.2.3",
+    "description": "兼容vue2和vue3的组件库",
+    "private": false,
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
     },
-    "./dist/style.css": {
-      "import": "./dist/index.css",
-      "require": "./dist/index.css"
+    "main": "dist/index.umd.js",
+    "module": "dist/index.es.js",
+    "types": "./types/index.d.ts",
+    "style": "dist/style.css",
+    "exports": {
+        ".": {
+            "import": "./dist/index.es.js",
+            "require": "./dist/index.cjs.js"
+        },
+        "./dist/style.css": {
+            "import": "./dist/index.css",
+            "require": "./dist/index.css"
+        }
+    },
+    "files": [
+        "scripts",
+        "dist",
+        "types"
+    ],
+    "scripts": {
+        "docs:dev": "vue-demi-switch 3 vue3 && vitepress dev docs",
+        "build": "npm run clean && run-s build:*",
+        "docs:build": "vitepress build docs && vitepress preview docs",
+        "build:2.7": "vue-demi-switch 2.7 && pnpm --filter vue2.7-playground build",
+        "build:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground build",
+        "clean": "rimraf ./dist",
+        "dev:2.7": "vue-demi-switch 2.7 vue2 && pnpm --filter vue2.7-playground dev",
+        "dev:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground dev",
+        "lint:fix": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix --ignore-path .gitignore",
+        "postinstall": "node scripts/postinstall.js",
+        "prepublishOnly": "npm run build",
+        "release": "bumpp --commit --push --tag && npm publish"
+    },
+    "keywords": [
+        "兼容vue2和vue3的组件库"
+    ],
+    "author": "lingjinming",
+    "license": "ISC",
+    "homepage": "https://lifeline-ui-vite.pages.dev",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lingjinming/lifeline-ui-vite"
+    },
+    "dependencies": {
+        "vue-demi": "0.13.11"
+    },
+    "devDependencies": {
+        "vite-plugin-require-transform": "^1.0.12",
+        "@antfu/eslint-config": "^0.34.0",
+        "@types/node": "^18.7.3",
+        "@vitejs/plugin-vue-jsx": "^2.0.0",
+        "bumpp": "^8.2.1",
+        "eslint": "^8.31.0",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.2",
+        "sass": "^1.57.1",
+        "terser": "5.4.0",
+        "typescript": "~4.7.4",
+        "vite": "npm:vite@3",
+        "vitepress": "1.0.0-alpha.75",
+        "vitepress-theme-demoblock": "2.0.2",
+        "vue-template-compiler": "2.7.14",
+        "vue-tsc": "^0.40.13",
+        "vue2": "npm:vue@2.7.14",
+        "vue3": "npm:vue@latest",
+        "@vue/composition-api": "1.7.1"
     }
-  },
-  "files": [
-    "scripts",
-    "dist",
-    "types"
-  ],
-  "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "build": "npm run clean && run-s build:*",
-    "docs:build": "vitepress build docs && vitepress preview docs",
-    "build:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground build",
-    "build:2.7": "vue-demi-switch 2.7 && pnpm --filter vue2.7-playground build",
-    "build:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground build",
-    "clean": "rimraf ./dist",
-    "dev:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-playground dev",
-    "dev:2.7": "vue-demi-switch 2.7 vue2 && pnpm --filter vue2.7-playground dev",
-    "dev:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-playground dev",
-    "lint:fix": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix --ignore-path .gitignore",
-    "postinstall": "node scripts/postinstall.js",
-    "prepublishOnly": "npm run build",
-    "release": "bumpp --commit --push --tag && npm publish"
-  },
-  "keywords": [
-    "兼容vue2和vue3的组件库"
-  ],
-  "author": "lingjinming",
-  "license": "ISC",
-  "homepage": "https://lifeline-ui-vite.pages.dev",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lingjinming/lifeline-ui-vite"
-  },
-  "dependencies": {
-    "vue-demi": "^0.13.11"
-  },
-  "devDependencies": {
-    "vite-plugin-require-transform": "^1.0.12",
-    "@antfu/eslint-config": "^0.34.0",
-    "@types/node": "^18.7.3",
-    "@vitejs/plugin-vue-jsx": "^2.0.0",
-    "bumpp": "^8.2.1",
-    "eslint": "^8.31.0",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2",
-    "sass": "^1.57.1",
-    "terser": "5.4.0",
-    "typescript": "~4.7.4",
-    "vite": "^4.3.5",
-    "vitepress": "1.0.0-alpha.75",
-    "vitepress-theme-demoblock": "2.0.2",
-    "vue-template-compiler": "^2.7.8",
-    "vue-tsc": "^0.40.13",
-    "vue2": "npm:vue@2",
-    "vue3": "npm:vue@3"
-  },
-  "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.1",
-    "vue": "^2.0.0 || >=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
-  }
 }

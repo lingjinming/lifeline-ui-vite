@@ -1,17 +1,19 @@
 <template>
-  <div class="l-tabs-box">
+  <div class="l-tabs-box" :class="{'is-gap':gap}" :style="{gap:gap+'px'}">
     <div
       v-for="(item, i) in tabs"
       :key="i"
       :class="[
         'l-tabs-box-item',
         {
-          act: activeNameNew == item.label,
+          act: activeNameNew == item.label
         },
       ]"
       @click="clickTab(item)"
-    >
+    > 
+      <!-- tab左侧img -->
       <img class="l-tabs-box-img" v-if="item.img" :src="item.img" />
+      <!-- tab右侧内容 -->
       <div class="l-tabs-box-content">
         <h3>
           {{ item.label }}
@@ -44,6 +46,10 @@ export default defineComponent({
       default: "",
       type: String,
     },
+    gap: {
+      default: 0,
+      type: Number,
+    },
   },
   setup(props:any, ctx) {
     let activeNameNew = props.activeName
@@ -75,6 +81,7 @@ export default defineComponent({
   margin-bottom: 20px;
   &-item {
     position: relative;
+    background: #fff;
     flex: 1;
     display: flex;
     cursor: pointer;
@@ -122,6 +129,10 @@ export default defineComponent({
     width: 45px;
     height: 45px;
     margin-right: 15px;
+  }
+  &.is-gap{
+    background: transparent;
+    padding:0;
   }
 }
 </style>
