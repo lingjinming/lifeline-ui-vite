@@ -20,7 +20,6 @@ export const baseBuildConfig = defineConfig({
   server:{
     
     hmr: { 
-      host:'0.0.0.0',
       overlay: false 
     },
 

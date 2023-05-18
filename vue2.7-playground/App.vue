@@ -1,16 +1,19 @@
 <script lang="ts" setup>
-import { isVue2, isVue3, ref } from 'vue-demi'
+import { isVue2, isVue3, reactive, ref } from 'vue-demi'
 
 const versionStr = isVue2 ? 'Vue2' : 'Vue3'
 const Vue2Version = ref(versionStr)
-
+const tabs = reactive([
+  {label:'122'},
+  {label:'label2'},
+])
 console.warn(`Vue env: Vue3:${isVue3} -- Vue2: ${isVue2}`)
 </script>
 
 <template>
   <div>
     <span>{{ Vue2Version }}</span>
-    <l-tabs></l-tabs>
+    <l-tabs :tabs='tabs' :gap='30'></l-tabs>
   </div>
 </template>
 

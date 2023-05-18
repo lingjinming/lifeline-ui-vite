@@ -4,9 +4,11 @@
 
 ```vue
 <template>
+  <l-button style="margin-bottom:20px" name="切换tab间隔" @click="toggleGap" />
   <l-tabs
     activeName="netsjs2"
     :tabs="tabs"
+    :gap="gap"
     @tab-click="handleClick"
   ></l-tabs>
 </template>
@@ -14,6 +16,7 @@
 export default {
   data() {
     return {
+      gap: 0,
       tabs: [
         {
           label: "netsjs",
@@ -44,6 +47,9 @@ export default {
     handleClick(tab) {
       console.log(tab);
     },
+    toggleGap() {
+      this.gap == 20 ? (this.gap = 0) : (this.gap = 20);
+    },
   },
 };
 </script>
@@ -53,10 +59,11 @@ export default {
 
 ## Tabs 属性
 
-| 属性名     |    描述    |    类型     | 可选参数 |      默认值      |
-| ---------- | :--------: | :---------: | :------: | :--------------: |
-| activeName | 选中项名称 |   String    |    --    | tabs[0]['label'] |
-| tabs       |  tab 数据  | [TabsItems] |    --    |        []        |
+| 属性名     |     描述     |    类型     | 可选参数 |      默认值      |
+| ---------- | :----------: | :---------: | :------: | :--------------: |
+| activeName |  选中项名称  |   String    |    --    | tabs[0]['label'] |
+| tabs       |   tab数据   | [TabsItems] |    --    |        []        |
+| gap        | tab间隔 |   Number    |    --    |        0         |
 
 ## TabsItems Attributes
 
