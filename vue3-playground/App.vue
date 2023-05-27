@@ -7,13 +7,17 @@ const tabs = reactive([
   {label:'122'},
   {label:'label2'},
 ])
+let activeName = ref('122')
 console.warn(`Vue env: Vue3:${isVue3} -- Vue2: ${isVue2}`)
+const click = (item => {
+  activeName.value == 'label2' ? activeName.value = '122' :activeName.value = 'label2'
+})
 </script>
 
 <template>
   <div>
-    <span>{{ Vue2Version }}</span>
-    <l-tabs :tabs="tabs"></l-tabs>
+    <span @click="click">{{ Vue2Version }}</span>
+    <l-tabs v-model="activeName" :tabs="tabs"></l-tabs>
     <l-button ></l-button>
     
   </div>

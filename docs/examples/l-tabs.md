@@ -4,9 +4,9 @@
 
 ```vue
 <template>
-  <l-button style="margin-bottom:20px" name="切换tab间隔" @click="toggleGap" />
+  <l-button style="margin-bottom:20px" name="切换tab间隔和选中" @click="toggleGap" />
   <l-tabs
-    activeName="netsjs2"
+    v-model="activeName"
     :tabs="tabs"
     :gap="gap"
     @tab-click="handleClick"
@@ -17,23 +17,24 @@ export default {
   data() {
     return {
       gap: 0,
+      activeName:'',
       tabs: [
         {
-          label: "netsjs",
+          label: "nestjs",
           params: {
             key1: "val1",
           },
         },
         {
-          label: "netsjs2",
-          subTit: "netsjs",
+          label: "nestjs2",
+          subTit: "nestjs",
           params: {
             key2: "val2",
           },
         },
         {
-          label: "netsjs3",
-          subTit: "netsjs",
+          label: "nestjs3",
+          subTit: "nestjs",
           img: "https://www.nestjs.com.cn/img/logo.png",
           params: {
             key1: "val1",
@@ -45,9 +46,10 @@ export default {
   },
   methods: {
     handleClick(tab) {
-      console.log(tab);
+      console.log(this.activeName);
     },
     toggleGap() {
+      this.activeName = 'nestjs3'
       this.gap == 20 ? (this.gap = 0) : (this.gap = 20);
     },
   },
@@ -61,7 +63,7 @@ export default {
 
 | 属性名     |     描述     |    类型     | 可选参数 |      默认值      |
 | ---------- | :----------: | :---------: | :------: | :--------------: |
-| activeName |  选中项名称  |   String    |    --    | tabs[0]['label'] |
+| value / v-model |  选中项名称  |   String    |    --    | tabs[0]['label'] |
 | tabs       |   tab数据   | [TabsItems] |    --    |        []        |
 | gap        | tab间隔 |   Number    |    --    |        0         |
 

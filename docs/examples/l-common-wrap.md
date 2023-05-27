@@ -23,24 +23,10 @@ export default {
 
 :::
 
-## Tabs 属性
+## 属性
 
 | 属性名     |    描述    |    类型     | 可选参数 |      默认值      |
 | ---------- | :--------: | :---------: | :------: | :--------------: |
-| activeName | 选中项名称 |   String    |    --    | tabs[0]['label'] |
-| tabs       |  tab 数据  | [TabsItems] |    --    |        []        |
+| tit | 标题名称 |   String    |    --    | -- |
 
-## TabsItems Attributes
 
-| 属性名 |   描述   |  类型  | 可选参数 | 默认值 |
-| ------ | :------: | :----: | :------: | :----: |
-| label  |   名称   | String |    --    |   --   |
-| subTit |  副标题  | String |    --    |   --   |
-| img    | 图片路径 | String |    --    |   --   |
-| params | 额外参数 | Object |    --    |   --   |
-
-## Tabs Events
-
-| 事件名    |     描述     |   回调参数    |
-| --------- | :----------: | :-----------: |
-| tab-click | tab 点击事件 | 当前 tab 实例 |
