@@ -22,8 +22,7 @@ jobs:
         with:
           node-version: 16
       - name: Install modules
-       - run: pnpm store prune
-       - run: pnpm install
+        run: pnpm install
       - name: Build 
         run: pnpm run build 
       - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_AUTH_TOKEN }}"
