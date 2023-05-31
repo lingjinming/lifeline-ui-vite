@@ -44,6 +44,10 @@ const props = defineProps({
     },
     type: Array as () => PropType<ILTabItem[]>,
   },
+  value: {
+    default: "",
+    type: String,
+  },
   modelValue: {
     default: "",
     type: String,
@@ -53,13 +57,12 @@ const props = defineProps({
     type: Number,
   },
 });
-const emit = defineEmits(["tab-click", "update:input", "update:modelValue"]);
+const emit = defineEmits(["tab-click", "update:modelValue"]);
 
 const clickTab = (item: ILTabItem) => {
   emit("update:modelValue", item.label);
   emit("tab-click", item);
 };
-
 watch(() => props.modelValue,(newval) => {
   if(!newval){
     emit("update:modelValue", (props as any).tabs[0]['label']);

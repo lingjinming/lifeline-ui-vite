@@ -4,9 +4,20 @@
 
 ```vue
 <template>
-  <l-button style="margin-bottom:20px" name="切换tab间隔和选中" @click="toggleGap" />
+  <l-button
+    style="margin-bottom:20px"
+    name="切换tab间隔和选中"
+    @click="toggleGap"
+  />
   <l-tabs
     v-model="activeName"
+    :tabs="tabs"
+    :gap="gap"
+    @tab-click="handleClick"
+  ></l-tabs>
+  <!-- vue2中使用 :modelValue.sync -->
+  <l-tabs
+    :modelValue.sync="activeName"
     :tabs="tabs"
     :gap="gap"
     @tab-click="handleClick"
@@ -17,7 +28,7 @@ export default {
   data() {
     return {
       gap: 0,
-      activeName:'',
+      activeName: "",
       tabs: [
         {
           label: "nestjs",
@@ -49,7 +60,7 @@ export default {
       console.log(this.activeName);
     },
     toggleGap() {
-      this.activeName = 'nestjs3'
+      this.activeName = "nestjs3";
       this.gap == 20 ? (this.gap = 0) : (this.gap = 20);
     },
   },
@@ -61,11 +72,12 @@ export default {
 
 ## Tabs 属性
 
-| 属性名     |     描述     |    类型     | 可选参数 |      默认值      |
-| ---------- | :----------: | :---------: | :------: | :--------------: |
-| value / v-model |  选中项名称  |   String    |    --    | tabs[0]['label'] |
-| tabs       |   tab数据   | [TabsItems] |    --    |        []        |
-| gap        | tab间隔 |   Number    |    --    |        0         |
+| 属性名     |                  描述                   |    类型     | 可选参数 |      默认值      |
+| ---------- | :-------------------------------------: | :---------: | :------: | :--------------: |
+| modelValue | 选中项名称，vue2 中配合.sync 修饰符使用 |   String    |    --    | tabs[0]['label'] |
+| v-model    |               选中项名称                |   String    |    --    | tabs[0]['label'] |
+| tabs       |                tab 数据                 | [TabsItems] |    --    |        []        |
+| gap        |                tab 间隔                 |   Number    |    --    |        0         |
 
 ## TabsItems Attributes
 
