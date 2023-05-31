@@ -4,6 +4,7 @@
   <div>
     <span @click="click">{{ versionStr }}</span>
     <l-tabs :modelValue.sync="activeName" :tabs='tabs' :gap='30' ></l-tabs>
+    <l-wrap></l-wrap>
   </div>
 </template>
 <script>

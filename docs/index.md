@@ -7,7 +7,6 @@ titleTemplate: 一个兼容Vue2和Vue3组件库
 hero:
   name: lifeline-ui
   text: 一个兼容Vue2和Vue3组件库
-  tagline: 仅供学习
   image:
     src: /logo.png
     alt: lifeline-ui
