@@ -70,6 +70,6 @@
     "vue-template-compiler": "2.7.14",
     "vue-tsc": "^0.40.13",
     "vue2": "npm:vue@2.7.14",
-    "vue3": "npm:vue@latest"
+    "vue3": "npm:vue@3.3.2"
   }
 }
