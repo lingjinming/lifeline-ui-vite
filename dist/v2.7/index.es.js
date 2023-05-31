@@ -1,4 +1,4 @@
-import Vue, { defineComponent, computed, watch } from "vue";
+import Vue, { defineComponent, computed, ref, watch } from "vue";
 const reset = "";
 const index$1 = "";
 Vue.util.warn;
@@ -157,13 +157,18 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     emit
   }) {
     const props = __props;
+    const activeName = ref(props.modelValue);
     const clickTab = (item) => {
+      activeName.value = item.label;
       emit("update:modelValue", item.label);
       emit("tab-click", item);
     };
     watch(() => props.modelValue, (newval) => {
+      console.log("modelValue-->", newval);
       if (!newval) {
-        emit("update:modelValue", props.tabs[0]["label"]);
+        activeName.value = props.tabs[0]["label"];
+      } else {
+        activeName.value = newval;
       }
     }, {
       immediate: true,
@@ -172,12 +177,13 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     return {
       __sfc: true,
       props,
+      activeName,
       emit,
       clickTab
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_6223a7c9_lang = "";
+const index_vue_vue_type_style_index_0_scoped_801a2ada_lang = "";
 var _sfc_render$1 = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("div", {
@@ -192,7 +198,7 @@ var _sfc_render$1 = function render2() {
     return _c("div", {
       key: i,
       class: ["l-tabs-box-item", {
-        act: _vm.modelValue == item.label
+        act: _setup.activeName == item.label
       }],
       on: {
         "click": function($event) {
@@ -210,7 +216,7 @@ var _sfc_render$1 = function render2() {
   }), 0);
 };
 var _sfc_staticRenderFns$1 = [];
-var __component__$1 = /* @__PURE__ */ normalizeComponent(_sfc_main$1, _sfc_render$1, _sfc_staticRenderFns$1, false, null, "6223a7c9", null, null);
+var __component__$1 = /* @__PURE__ */ normalizeComponent(_sfc_main$1, _sfc_render$1, _sfc_staticRenderFns$1, false, null, "801a2ada", null, null);
 const LTabs = __component__$1.exports;
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",

@@ -10,7 +10,7 @@
       :class="[
         'l-tabs-box-item',
         {
-          act: modelValue == item.label,
+          act: activeName == item.label,
         },
       ]"
       @click="clickTab(item)"
@@ -57,15 +57,20 @@ const props = defineProps({
     type: Number,
   },
 });
+const activeName = ref(props.modelValue)
 const emit = defineEmits(["tab-click", "update:modelValue"]);
 
 const clickTab = (item: ILTabItem) => {
+  activeName.value = item.label
   emit("update:modelValue", item.label);
   emit("tab-click", item);
 };
 watch(() => props.modelValue,(newval) => {
+  console.log('modelValue-->',newval)
   if(!newval){
-    emit("update:modelValue", (props as any).tabs[0]['label']);
+    activeName.value =  (props as any).tabs[0]['label']
+  }else{
+    activeName.value = newval
   }
 },{immediate:true,deep:true})
 </script>

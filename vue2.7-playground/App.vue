@@ -3,7 +3,7 @@
 <template>
   <div>
     <span @click="click">{{ versionStr }}</span>
-    <l-tabs :modelValue.sync="activeName" :tabs='tabs' :gap='30' @tab-click='tabClick'></l-tabs>
+    <l-tabs :modelValue.sync="activeName" :tabs='tabs' :gap='30' ></l-tabs>
   </div>
 </template>
 <script>
@@ -13,7 +13,7 @@ export default{
   data(){
     return{
       versionStr: isVue2 ? 'Vue2' : 'Vue3',
-      activeName:'1',
+      activeName:'2',
       tabs:[{label:'1'},{label:'2'},{label:'3'}]
     }
   },

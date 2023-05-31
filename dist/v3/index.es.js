@@ -1,4 +1,4 @@
-import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, normalizeStyle, createCommentVNode, renderSlot, toDisplayString, watch, Fragment, renderList, createElementVNode } from "vue";
+import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, normalizeStyle, createCommentVNode, renderSlot, toDisplayString, ref, watch, Fragment, renderList, unref, createElementVNode } from "vue";
 var reset = "";
 var index$1 = "";
 var index_vue_vue_type_style_index_0_scoped_true_lang$2 = "";
@@ -113,13 +113,18 @@ const _sfc_main$1 = defineComponent({
     emit
   }) {
     const props = __props;
+    const activeName = ref(props.modelValue);
     const clickTab = (item) => {
+      activeName.value = item.label;
       emit("update:modelValue", item.label);
       emit("tab-click", item);
     };
     watch(() => props.modelValue, (newval) => {
+      console.log("modelValue-->", newval);
       if (!newval) {
-        emit("update:modelValue", props.tabs[0]["label"]);
+        activeName.value = props.tabs[0]["label"];
+      } else {
+        activeName.value = newval;
       }
     }, {
       immediate: true,
@@ -137,7 +142,7 @@ const _sfc_main$1 = defineComponent({
         return openBlock(), createElementBlock("div", {
           key: i,
           class: normalizeClass(["l-tabs-box-item", {
-            act: __props.modelValue == item.label
+            act: unref(activeName) == item.label
           }]),
           onClick: ($event) => clickTab(item)
         }, [item.img ? (openBlock(), createElementBlock("img", {
@@ -149,7 +154,7 @@ const _sfc_main$1 = defineComponent({
     };
   }
 });
-var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-10680b4c"]]);
+var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-f730796a"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _hoisted_1 = {
   class: "l-common-wrap"
