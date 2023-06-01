@@ -4,7 +4,17 @@
   <div>
     <span @click="click">{{ versionStr }}</span>
     <l-tabs :modelValue.sync="activeName" :tabs='tabs' :gap='30' ></l-tabs>
-    <l-wrap></l-wrap>
+    <l-wrap>
+      <template #btn>
+        <span>444</span>
+
+      </template>
+      <div>111</div>
+      <div>111</div>
+      <div>111</div>
+      <div>111</div>
+      <div>111</div>
+    </l-wrap>
   </div>
 </template>
 <script>
@@ -34,7 +44,6 @@ body > div {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }

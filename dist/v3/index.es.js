@@ -1,4 +1,4 @@
-import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, normalizeStyle, createCommentVNode, renderSlot, toDisplayString, ref, watch, Fragment, renderList, unref, createElementVNode } from "vue";
+import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, normalizeStyle, createCommentVNode, renderSlot, toDisplayString, ref, watch, Fragment, renderList, unref, createElementVNode, useSlots, resolveComponent, createVNode, withCtx } from "vue";
 var reset = "";
 var index$1 = "";
 var index_vue_vue_type_style_index_0_scoped_true_lang$2 = "";
@@ -78,7 +78,7 @@ var LButton = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render],
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
 const _hoisted_1$1 = ["onClick"];
 const _hoisted_2$1 = ["src"];
-const _hoisted_3$1 = {
+const _hoisted_3 = {
   class: "l-tabs-box-content"
 };
 const _hoisted_4 = {
@@ -90,7 +90,9 @@ const _sfc_main$1 = defineComponent({
     tabs: {
       default() {
         return [{
-          label: "default label"
+          label: "default label1"
+        }, {
+          label: "default label2"
         }];
       },
       type: Array
@@ -120,7 +122,6 @@ const _sfc_main$1 = defineComponent({
       emit("tab-click", item);
     };
     watch(() => props.modelValue, (newval) => {
-      console.log("modelValue-->", newval);
       if (!newval) {
         activeName.value = props.tabs[0]["label"];
       } else {
@@ -149,21 +150,20 @@ const _sfc_main$1 = defineComponent({
           key: 0,
           class: "l-tabs-box-img",
           src: item.img
-        }, null, 8, _hoisted_2$1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_3$1, [createElementVNode("h3", null, toDisplayString(item.label), 1), item.subTit ? (openBlock(), createElementBlock("p", _hoisted_4, toDisplayString(item.subTit), 1)) : createCommentVNode("", true)])], 10, _hoisted_1$1);
+        }, null, 8, _hoisted_2$1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_3, [createElementVNode("h3", null, toDisplayString(item.label), 1), item.subTit ? (openBlock(), createElementBlock("p", _hoisted_4, toDisplayString(item.subTit), 1)) : createCommentVNode("", true)])], 10, _hoisted_1$1);
       }), 128))], 6);
     };
   }
 });
-var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-f730796a"]]);
+var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-69b3d32a"]]);
+var _imports_0 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAxRJREFUSEu9VWtIFFEU/s7M7syOuolaRmG1PSyx9M8WCEUaJQZBBdE7eoE9FAkjpCLoBREGQWLZyzKiQiok/4SZZaGYURFtFlFW9o40yV2dnVlnbsy01irrukR2YH7M3HvPd7/zfecMYZCDBjk//iuAAdYDyAAYT7AId595tichD6TaAJsNdo3g1roBjwy8UgOACHCIgF2CXeDh5hng9QJPvAC0/krtB3BaESXGCKo2lFlYBHWTqvL4DplrAxqMBACcEiRLrKAhllmYQN3UpQp8KzxKO/DQNwAA+MwP3mJeFDeZG3Vd/nixMse1s7AaMr6b3yQ9LuXA9jkjl88/ThwnGtx1RSm5kWDLC8rgsq8+sERIWJwvTTp8sIIs1iwTw6f9aCk+tba5qPQRoNO4/Bzn2M1rz5CVjzbWmc9XVbN640LUlvkZ9uFwpbvekDHQRZRUfDM2fl76bfCWFHNFUb6+KNi7wTiaWLj7JCcIw800muZqq6jJaNo69xe7ENHXpjT5WtP4IVOS7jLQCDOX2/MaBI6PinL8osw+ex43z3AtmvgmhNN+QwbrA0q+3jxdHO2oAoeIP0Yz6sa6fB/eZz7NcjSEk7yXBgEsOcBpH3O6ZGXkVGfxbysTsa77D3LfZuddABo9BlzI2vQV2b+ZTDvatPiEY2dzhSmp2wyKPR3ndT059Cl3/VF4uW/AQzkki2AiAxkiJCUuZseeBRGzZhcBxAfekoFp8q0bee0H91dCFtuAWmWgUgVokCwg0h4TsWRdmrRi/XniOLvfjrUmC6uQQWBguu6WL5Wt6iovbUSnux14ZnR7vxEwKlKGWNKzkmz5e8tJFEf5G+65u+5mOkSe7NMy7oDjkwzRdVV5pxbuWuqrr34BuDrCGxWTEocJ+05cJSkyzW/HL+zNy5nKluRXxrt45NkEciTWMaJ4k5nc2aAWrFuElpbWoKOij8g8Vy6XkNWabQhKhE6t40cm1sTd6zXszrWlcVHR1SBEmgxV30l9mZQTlEFwkQdvXA/U8X+9/l//aH99y3BsOijJ+5tF/xTsJ6S4Ia3QeHrnAAAAAElFTkSuQmCC";
 var index_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _hoisted_1 = {
-  class: "l-common-wrap"
+  key: 0,
+  class: "l-wrap"
 };
 const _hoisted_2 = {
-  class: "l-common-wrap-tit"
-};
-const _hoisted_3 = {
-  class: "l-common-wrap-con"
+  class: "l-wrap-con"
 };
 const _sfc_main = defineComponent({
   __name: "index",
@@ -171,20 +171,55 @@ const _sfc_main = defineComponent({
     tit: {
       type: String,
       default: "\u9ED8\u8BA4\u6807\u9898"
+    },
+    titBg: {
+      type: String,
+      default: "https://www.nestjs.com.cn/img/logo.png"
+    },
+    showBtn: {
+      type: Boolean,
+      default: true
     }
   },
-  setup(__props) {
+  emits: ["close"],
+  setup(__props, {
+    emit
+  }) {
+    const props = __props;
+    let showWrap = ref(true);
+    const slots = useSlots();
+    console.log(slots);
+    const titStyle = computed(() => {
+      return {
+        backgroundImage: `url(${props.titBg})`
+      };
+    });
+    const closeWrap = () => {
+      showWrap.value = false;
+      emit("close");
+    };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1, [createElementVNode("section", _hoisted_2, [createElementVNode("h4", null, toDisplayString(__props.tit), 1)]), createElementVNode("section", _hoisted_3, [renderSlot(_ctx.$slots, "default", {}, void 0, true)])]);
+      const _component_H4 = resolveComponent("H4");
+      return unref(showWrap) ? (openBlock(), createElementBlock("div", _hoisted_1, [createElementVNode("section", {
+        class: "l-wrap-tit",
+        style: normalizeStyle(unref(titStyle))
+      }, [createVNode(_component_H4, null, {
+        default: withCtx(() => [createElementVNode("span", null, toDisplayString(__props.tit), 1), renderSlot(_ctx.$slots, "btn", {}, void 0, true), __props.showBtn && !unref(slots).btn ? (openBlock(), createElementBlock("img", {
+          key: 0,
+          src: _imports_0,
+          onClick: closeWrap
+        })) : createCommentVNode("", true)]),
+        _: 3
+      })], 4), createElementVNode("section", _hoisted_2, [renderSlot(_ctx.$slots, "default", {}, void 0, true)])])) : createCommentVNode("", true);
     };
   }
 });
-var LCommonWrap = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-5ac1dc95"]]);
+var LWrap = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-77466e72"]]);
 var index = {
   install(app, options) {
     app.component("LButton", LButton);
     app.component("LTabs", LTabs);
-    app.component("LCommonWrap", LCommonWrap);
+    app.component("LWrap", LWrap);
   }
 };
-export { LButton, LCommonWrap, LTabs, index as default };
+export { LButton, LTabs, LWrap, index as default };

@@ -79,7 +79,7 @@ export default {
 | tabs       |                tab 数据                 | [TabsItems] |    --    |        []        |
 | gap        |                tab 间隔                 |   Number    |    --    |        0         |
 
-## TabsItems Attributes
+## TabsItems 属性
 
 | 属性名 |   描述   |  类型  | 可选参数 | 默认值 |
 | ------ | :------: | :----: | :------: | :----: |
@@ -88,7 +88,7 @@ export default {
 | img    | 图片路径 | String |    --    |   --   |
 | params | 额外参数 | Object |    --    |   --   |
 
-## Tabs Events
+## 事件
 
 | 事件名    |     描述     |   回调参数    |
 | --------- | :----------: | :-----------: |

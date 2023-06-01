@@ -40,7 +40,7 @@ interface ILTabItem {
 const props = defineProps({
   tabs: {
     default() {
-      return [{ label: "default label" }];
+      return [{ label: "default label1" },{ label: "default label2" }];
     },
     type: Array as () => PropType<ILTabItem[]>,
   },
@@ -57,8 +57,8 @@ const props = defineProps({
     type: Number,
   },
 });
-const activeName = ref(props.modelValue)
 const emit = defineEmits(["tab-click", "update:modelValue"]);
+const activeName = ref(props.modelValue)
 
 const clickTab = (item: ILTabItem) => {
   activeName.value = item.label
@@ -66,7 +66,6 @@ const clickTab = (item: ILTabItem) => {
   emit("tab-click", item);
 };
 watch(() => props.modelValue,(newval) => {
-  console.log('modelValue-->',newval)
   if(!newval){
     activeName.value =  (props as any).tabs[0]['label']
   }else{

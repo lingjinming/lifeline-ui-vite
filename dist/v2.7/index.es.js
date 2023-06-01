@@ -1,4 +1,4 @@
-import Vue, { defineComponent, computed, ref, watch } from "vue";
+import Vue, { defineComponent, computed, ref, watch, useSlots } from "vue";
 const reset = "";
 const index$1 = "";
 Vue.util.warn;
@@ -134,7 +134,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     tabs: {
       default() {
         return [{
-          label: "default label"
+          label: "default label1"
+        }, {
+          label: "default label2"
         }];
       },
       type: Array
@@ -164,7 +166,6 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       emit("tab-click", item);
     };
     watch(() => props.modelValue, (newval) => {
-      console.log("modelValue-->", newval);
       if (!newval) {
         activeName.value = props.tabs[0]["label"];
       } else {
@@ -177,13 +178,13 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     return {
       __sfc: true,
       props,
-      activeName,
       emit,
+      activeName,
       clickTab
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_801a2ada_lang = "";
+const index_vue_vue_type_style_index_0_scoped_1940fa81_lang = "";
 var _sfc_render$1 = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("div", {
@@ -216,7 +217,7 @@ var _sfc_render$1 = function render2() {
   }), 0);
 };
 var _sfc_staticRenderFns$1 = [];
-var __component__$1 = /* @__PURE__ */ normalizeComponent(_sfc_main$1, _sfc_render$1, _sfc_staticRenderFns$1, false, null, "801a2ada", null, null);
+var __component__$1 = /* @__PURE__ */ normalizeComponent(_sfc_main$1, _sfc_render$1, _sfc_staticRenderFns$1, false, null, "1940fa81", null, null);
 const LTabs = __component__$1.exports;
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -224,39 +225,77 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     tit: {
       type: String,
       default: "默认标题"
+    },
+    titBg: {
+      type: String,
+      default: "https://www.nestjs.com.cn/img/logo.png"
+    },
+    showBtn: {
+      type: Boolean,
+      default: true
     }
   },
-  setup(__props) {
+  emits: ["close"],
+  setup(__props, {
+    emit
+  }) {
+    const props = __props;
+    let showWrap = ref(true);
+    const slots = useSlots();
+    console.log(slots);
+    const titStyle = computed(() => {
+      return {
+        backgroundImage: `url(${props.titBg})`
+      };
+    });
+    const closeWrap = () => {
+      showWrap.value = false;
+      emit("close");
+    };
     return {
-      __sfc: true
+      __sfc: true,
+      props,
+      showWrap,
+      emit,
+      slots,
+      titStyle,
+      closeWrap
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_72f0af99_lang = "";
+const __$_require_36d30f88__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAxRJREFUSEu9VWtIFFEU/s7M7syOuolaRmG1PSyx9M8WCEUaJQZBBdE7eoE9FAkjpCLoBREGQWLZyzKiQiok/4SZZaGYURFtFlFW9o40yV2dnVlnbsy01irrukR2YH7M3HvPd7/zfecMYZCDBjk//iuAAdYDyAAYT7AId595tichD6TaAJsNdo3g1roBjwy8UgOACHCIgF2CXeDh5hng9QJPvAC0/krtB3BaESXGCKo2lFlYBHWTqvL4DplrAxqMBACcEiRLrKAhllmYQN3UpQp8KzxKO/DQNwAA+MwP3mJeFDeZG3Vd/nixMse1s7AaMr6b3yQ9LuXA9jkjl88/ThwnGtx1RSm5kWDLC8rgsq8+sERIWJwvTTp8sIIs1iwTw6f9aCk+tba5qPQRoNO4/Bzn2M1rz5CVjzbWmc9XVbN640LUlvkZ9uFwpbvekDHQRZRUfDM2fl76bfCWFHNFUb6+KNi7wTiaWLj7JCcIw800muZqq6jJaNo69xe7ENHXpjT5WtP4IVOS7jLQCDOX2/MaBI6PinL8osw+ex43z3AtmvgmhNN+QwbrA0q+3jxdHO2oAoeIP0Yz6sa6fB/eZz7NcjSEk7yXBgEsOcBpH3O6ZGXkVGfxbysTsa77D3LfZuddABo9BlzI2vQV2b+ZTDvatPiEY2dzhSmp2wyKPR3ndT059Cl3/VF4uW/AQzkki2AiAxkiJCUuZseeBRGzZhcBxAfekoFp8q0bee0H91dCFtuAWmWgUgVokCwg0h4TsWRdmrRi/XniOLvfjrUmC6uQQWBguu6WL5Wt6iovbUSnux14ZnR7vxEwKlKGWNKzkmz5e8tJFEf5G+65u+5mOkSe7NMy7oDjkwzRdVV5pxbuWuqrr34BuDrCGxWTEocJ+05cJSkyzW/HL+zNy5nKluRXxrt45NkEciTWMaJ4k5nc2aAWrFuElpbWoKOij8g8Vy6XkNWabQhKhE6t40cm1sTd6zXszrWlcVHR1SBEmgxV30l9mZQTlEFwkQdvXA/U8X+9/l//aH99y3BsOijJ+5tF/xTsJ6S4Ia3QeHrnAAAAAElFTkSuQmCC";
+const index_vue_vue_type_style_index_0_scoped_17c7bc91_lang = "";
 var _sfc_render = function render3() {
-  var _vm = this, _c = _vm._self._c;
-  _vm._self._setupProxy;
-  return _c("div", {
-    staticClass: "l-common-wrap"
+  var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
+  return _setup.showWrap ? _c("div", {
+    staticClass: "l-wrap"
   }, [_c("section", {
-    staticClass: "l-common-wrap-tit"
-  }, [_c("h4", [_vm._v(_vm._s(_vm.tit))])]), _c("section", {
-    staticClass: "l-common-wrap-con"
-  }, [_vm._t("default")], 2)]);
+    staticClass: "l-wrap-tit",
+    style: _setup.titStyle
+  }, [_c("H4", [_c("span", [_vm._v(" " + _vm._s(_vm.tit) + " ")]), _vm._t("btn"), _vm.showBtn && !_setup.slots.btn ? _c("img", {
+    attrs: {
+      "src": __$_require_36d30f88__
+    },
+    on: {
+      "click": _setup.closeWrap
+    }
+  }) : _vm._e()], 2)], 1), _c("section", {
+    staticClass: "l-wrap-con"
+  }, [_vm._t("default")], 2)]) : _vm._e();
 };
 var _sfc_staticRenderFns = [];
-var __component__ = /* @__PURE__ */ normalizeComponent(_sfc_main, _sfc_render, _sfc_staticRenderFns, false, null, "72f0af99", null, null);
-const LCommonWrap = __component__.exports;
+var __component__ = /* @__PURE__ */ normalizeComponent(_sfc_main, _sfc_render, _sfc_staticRenderFns, false, null, "17c7bc91", null, null);
+const LWrap = __component__.exports;
 const index = {
   install(app, options) {
     app.component("LButton", LButton);
     app.component("LTabs", LTabs);
-    app.component("LCommonWrap", LCommonWrap);
+    app.component("LWrap", LWrap);
   }
 };
 export {
   LButton,
-  LCommonWrap,
   LTabs,
+  LWrap,
   index as default
 };

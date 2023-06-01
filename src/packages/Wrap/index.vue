@@ -1,9 +1,10 @@
 <template>
   <div class="l-wrap" v-if="showWrap">
     <section class="l-wrap-tit" :style="titStyle">
-      <h4>
+      <H4>
         <span> {{ tit }} </span>
-        <i v-if="showCloseBtn" class="l-iconfont l-icon-guanbi" @click="closeWrap">11</i>
+        <slot name="btn"></slot>
+        <img v-if="showBtn && !slots.btn" src="./icon_close.png" @click="closeWrap">
       </h4>
     </section>
     <section class="l-wrap-con">
@@ -12,7 +13,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { defineComponent, PropType, h, isVue2, ref, computed } from "vue-demi";
+import { defineComponent, PropType, h, isVue2, ref, computed, useSlots } from "vue-demi";
 export interface ILTabs {
   label: String;
   img?: String;
@@ -28,20 +29,28 @@ const props = defineProps({
     type: String,
     default: "https://www.nestjs.com.cn/img/logo.png",
   },
-  showCloseBtn: {
+  showBtn: {
     type: Boolean,
     default: true,
   },
 });
 let showWrap = ref(true)
-const closeWrap = () => { showWrap.value = false }
+
+const emit = defineEmits(["close"]);
+const slots= useSlots()
+
+console.log(slots)
+
 const titStyle = computed(() => {
   return {
     backgroundImage: `url(${props.titBg})`,
   };
 });
 
-console.log(titStyle);
+const closeWrap = () => { 
+  showWrap.value = false
+  emit('close')
+ }
 </script>
 
 <style lang="scss" scoped>
@@ -60,11 +69,11 @@ console.log(titStyle);
     h4 {
       margin: 0;
       height: 45px;
-      padding:0 20px;
+      padding:0 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      .l-icon-guanbi{
+      img{
         cursor: pointer;
       }
     }
@@ -72,6 +81,7 @@ console.log(titStyle);
   &-con {
     padding: 20px;
     height: calc(100% - 45px);
+    background: url('./bg_bottom.png') no-repeat center bottom ;
   }
 
 }
