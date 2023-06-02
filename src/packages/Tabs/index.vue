@@ -137,6 +137,15 @@ watch(() => props.modelValue,(newval) => {
   &.is-gap {
     background: transparent;
     padding: 0;
+    .l-tabs-box-item{
+      &:hover::after,
+    &.act::after{
+      left: 10px;
+      right: 10px;
+      width: calc(100% - 20px);
+    }
+    }
+  
   }
 }
 </style>

@@ -5,7 +5,7 @@
 ```vue
 <template>
   <l-button>插槽内容</l-button>
-  <l-button lIcon="wendu" />
+  <l-button lIcon="wendu" disabled/>
   <l-button isCircle color="red" name="按钮" />
   <l-button color="#fff" bgColor="red" lIcon="jia" name="新增" />
   <l-button rIcon="shezhi" name="设置" />

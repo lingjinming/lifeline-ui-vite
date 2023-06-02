@@ -2,19 +2,8 @@
 
 <template>
   <div>
-    <span @click="click">{{ versionStr }}</span>
-    <l-tabs :modelValue.sync="activeName" :tabs='tabs' :gap='30' ></l-tabs>
-    <l-wrap>
-      <template #btn>
-        <span>444</span>
-
-      </template>
-      <div>111</div>
-      <div>111</div>
-      <div>111</div>
-      <div>111</div>
-      <div>111</div>
-    </l-wrap>
+    <span>{{ versionStr }}</span>
+    <l-detail @click="click"></l-detail>
   </div>
 </template>
 <script>
@@ -29,22 +18,18 @@ export default{
     }
   },
   methods:{
-    click(){
-      console.log(this.activeName)
+    click(item){
+      console.log(item)
     },
-    tabClick(){
-      console.log(this.activeName)
-
-    }
   }
 }
 </script>
 <style>
-body > div {
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   margin-top: 60px;
+  background: #2c3e50;
 }
 </style>

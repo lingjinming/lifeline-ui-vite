@@ -1,5 +1,5 @@
 ## LTabs 用法
-
+可显示副标题和图片的tabs
 :::demo
 
 ```vue
@@ -61,7 +61,7 @@ export default {
     },
     toggleGap() {
       this.activeName = "nestjs3";
-      this.gap == 20 ? (this.gap = 0) : (this.gap = 20);
+      this.gap ? (this.gap = 0) : (this.gap = 20);
     },
   },
 };
@@ -75,7 +75,7 @@ export default {
 | 属性名     |                  描述                   |    类型     | 可选参数 |      默认值      |
 | ---------- | :-------------------------------------: | :---------: | :------: | :--------------: |
 | modelValue | 选中项名称，vue2 中配合.sync 修饰符使用 |   String    |    --    | tabs[0]['label'] |
-| v-model    |               选中项名称                |   String    |    --    | tabs[0]['label'] |
+| v-model    |              vue3中使用，选中项名称                |   String    |    --    | tabs[0]['label'] |
 | tabs       |                tab 数据                 | [TabsItems] |    --    |        []        |
 | gap        |                tab 间隔                 |   Number    |    --    |        0         |
 
@@ -85,7 +85,7 @@ export default {
 | ------ | :------: | :----: | :------: | :----: |
 | label  |   名称   | String |    --    |   --   |
 | subTit |  副标题  | String |    --    |   --   |
-| img    | 图片路径 | String |    --    |   --   |
+| img    | 图片路径 | 绝对路径或者 base64  |    --    |   --   |
 | params | 额外参数 | Object |    --    |   --   |
 
 ## 事件

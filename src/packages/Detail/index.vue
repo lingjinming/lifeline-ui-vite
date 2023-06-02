@@ -1,0 +1,112 @@
+<template>
+  <section class="l-detail-box">
+    <h5 class="l-detail-box-tit">{{ tit }}</h5>
+    <ul class="l-detail-box-ul">
+      <li class="l-detail-box-li" v-for="(item, i) in details" :key="i">
+        <p class="label">{{ item.label }}:</p>
+        <p v-if="item.clickable" class="val clickable" @click="click(item)">{{ item.val }}</p>
+        <p v-else class="val">{{ item.val }}</p>
+      </li>
+    </ul>
+  </section>
+</template>
+<script lang="ts" setup>
+import {
+  defineComponent,
+  PropType,
+  h,
+  isVue2,
+  ref,
+  onMounted,
+  watch,
+} from "vue-demi";
+interface IDetailItem {
+  label: String;
+  val: String;
+  clickable: Boolean;
+}
+const props = defineProps({
+  tit:{
+    default:'详情信息',
+    type:String
+  },
+  details: {
+    default() {
+      return [];
+    },
+    type: Array as () => PropType<IDetailItem[]>,
+  },
+});
+const emit = defineEmits(['click']);
+const click = (item => {
+  emit('click',item)
+})
+</script>
+
+<style lang="scss" scoped>
+@mixin clear {
+  margin: 0 ;
+  padding: 0;
+}
+ul,
+li,
+h5,p {
+  @include clear;
+}
+.l-detail-box {
+  background: #fff;
+  &-tit {
+    position: relative;
+    height: 55px;
+    line-height: 55px;
+    font-size: 18px;
+    font-weight: 500;
+    text-indent: 1em;
+    color: var(--baseTxtColor);
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 20px;
+      width: 4px;
+      background: var(--baseColor);
+    }
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 15px;
+      right: 15px;
+      content: "";
+      border-bottom: 1px solid rgba($color: #bdbdbd, $alpha: 0.2);
+    }
+  }
+  &-ul {
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+
+  }
+  &-li {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    gap: 10px;
+    .label {
+      color: var(--baseSubTxtColor);
+    }
+    .val {
+      min-width: 180px;
+      word-wrap: break-word;
+      color: var(--baseTxtColor);
+      &.clickable {
+        cursor: pointer;
+        color: var(--baseColor);
+      }
+    }
+  }
+}
+</style>

@@ -9,6 +9,7 @@ const sidebar = [
       { text: "LButton 按钮", link: "/examples/l-button" },
       { text: "LTabs 标签页", link: "/examples/l-tabs" },
       { text: "LWrap 通用容器", link: "/examples/l-wrap" },
+      { text: "LDetail 详情", link: "/examples/l-detail" },
     ],
   }
 ];

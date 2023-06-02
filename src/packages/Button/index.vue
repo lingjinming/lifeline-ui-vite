@@ -1,5 +1,7 @@
 <template>
   <button
+    type="button"
+    v-bind="$attrs"
     class="l-button"
     :class="{'l-button-circle':isCircle}"
     :style="{
@@ -79,6 +81,10 @@ export default defineComponent({
     background: var(--baseBtnBgColor) !important;
     color: #fff !important;
     transform: scale(1.05);
+  }
+  &:disabled{
+    background: #dadada !important;
+    cursor: not-allowed;
   }
 }
 </style>
