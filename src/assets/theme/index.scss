@@ -1,16 +1,47 @@
 /* document.body.style.setProperty('--primaryColor', 'blue'); */
-:root{
-    --baseColor:#2395ff;
-    --baseTxtColor:#2b3e4f;
-    --baseSubTxtColor:#8b9fb6;
-    --baseBgColor:#2395ff;
-    --baseBorderColor:#2395ff;
-    --baseBorderRadius:3px;
-    // 按钮
-    --baseBtnBgColor:#2395ff;
-    // 红黄蓝
-    --yellowColor:#f3b109;
-    --redColor:#ef2e2e;
-    --blueColor:#2395ff;
+:root {
+  --baseColor: #2395ff;
+  --baseTxtColor: #2b3e4f;
+  --baseSubTxtColor: #8b9fb6;
+  --baseBgColor: #2395ff;
+  --baseBorderColor: #2395ff;
+  --baseBorderRadius: 3px;
+  // 按钮
+  --baseBtnBgColor: #2395ff;
+  // 红黄蓝
+  --yellowColor: #f3b109;
+  --redColor: #ef2e2e;
+  --blueColor: #2395ff;
+}
 
- }
+$curTheme: light;
+
+$themes: (
+  light: (
+    color: var(--baseTxtColor),
+    bgColor: #fff,
+  ),
+  dark: (
+    color: #fff,
+    bgColor: black,
+  ),
+);
+@mixin useTheme() {
+  @each $key, $val in $themes {
+    $curTheme: $key !global;
+    html[data-theme="#{$key}"] & {
+      @content;
+    }
+  }
+}
+@function getVar($key) {
+  $themeMap: map-get(
+    $map: $themes,
+    $key: $curTheme,
+  );
+  @return map-get($themeMap, $key);
+}
+@mixin clear {
+  margin: 0;
+  padding: 0;
+}

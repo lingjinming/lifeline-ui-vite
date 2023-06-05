@@ -44,17 +44,16 @@ const click = (item => {
 </script>
 
 <style lang="scss" scoped>
-@mixin clear {
-  margin: 0 ;
-  padding: 0;
-}
+@import '../../assets/theme/index.scss';
 ul,
 li,
 h5,p {
   @include clear;
 }
 .l-detail-box {
-  background: #fff;
+  @include useTheme{
+    background: getVar(bgColor);
+  }
   &-tit {
     position: relative;
     height: 55px;
@@ -63,6 +62,9 @@ h5,p {
     font-weight: 500;
     text-indent: 1em;
     color: var(--baseTxtColor);
+    @include useTheme{
+      color: getVar(color);
+    }
     &::before {
       content: "";
       position: absolute;

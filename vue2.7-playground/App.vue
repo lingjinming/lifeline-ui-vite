@@ -2,6 +2,7 @@
 
 <template>
   <div>
+    <l-button @click="change" name="切换主题"></l-button>
     <span>{{ versionStr }}</span>
     <l-detail @click="click"></l-detail>
   </div>
@@ -21,6 +22,12 @@ export default{
     click(item){
       console.log(item)
     },
+    change(){
+      let theme = document.querySelector('html').getAttribute('data-theme')
+      
+      theme == 'dark' ? theme = 'light' : theme = 'dark' 
+      document.querySelector('html').setAttribute('data-theme',theme)
+     }
   }
 }
 </script>

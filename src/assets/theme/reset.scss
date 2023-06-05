@@ -1,5 +1,5 @@
 
-
+@import './index.scss';
 *{
     box-sizing: border-box;
     text-decoration: none;
@@ -19,3 +19,8 @@ button{
     }
 }
 
+.l-detail-box-tit{
+    @include useTheme{
+        color: getVar(color);
+    }
+}

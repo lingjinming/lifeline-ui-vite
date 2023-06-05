@@ -9,6 +9,7 @@
       color,
       padding
     }"
+    @click="click"
   >
 
     <i v-if="lIcon" class="l-iconfont" :class="'l-icon-'+lIcon"></i>
@@ -58,8 +59,12 @@ export default defineComponent({
         return props.name || props.lIcon || props.rIcon ? "0 15px" : "0"
       }
     })
+    const click = () => {
+      ctx.emit('click')
+    }
     return {
-      padding
+      padding,
+      click
     }
   }
 });
