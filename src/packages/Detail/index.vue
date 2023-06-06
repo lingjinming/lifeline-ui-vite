@@ -1,5 +1,5 @@
 <template>
-  <section class="l-detail-box">
+  <section class="l-detail-box" :data-theme="dataTheme">
     <h5 class="l-detail-box-tit">{{ tit }}</h5>
     <ul class="l-detail-box-ul">
       <li class="l-detail-box-li" v-for="(item, i) in details" :key="i">
@@ -26,6 +26,10 @@ interface IDetailItem {
   clickable: Boolean;
 }
 const props = defineProps({
+  dataTheme:{
+    default:'light',
+    type:String
+  },
   tit:{
     default:'详情信息',
     type:String
@@ -51,9 +55,7 @@ h5,p {
   @include clear;
 }
 .l-detail-box {
-  @include useTheme{
-    background: getVar(bgColor);
-  }
+
   &-tit {
     position: relative;
     height: 55px;
@@ -64,6 +66,7 @@ h5,p {
     color: var(--baseTxtColor);
     @include useTheme{
       color: getVar(color);
+      background: getVar(bgColor);
     }
     &::before {
       content: "";
@@ -90,7 +93,9 @@ h5,p {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
-
+    @include useTheme{
+      background: getVar(bgColor);
+    }
   }
   &-li {
     display: flex;
@@ -98,15 +103,19 @@ h5,p {
     width: 250px;
     gap: 10px;
     .label {
-      color: var(--baseSubTxtColor);
+      @include useTheme{
+      color: getVar(subColor);
+    }
     }
     .val {
       min-width: 180px;
       word-wrap: break-word;
-      color: var(--baseTxtColor);
+      @include useTheme{
+        color: getVar(color);
+      }
       &.clickable {
         cursor: pointer;
-        color: var(--baseColor);
+        color: var(--baseColor) !important;
       }
     }
   }

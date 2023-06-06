@@ -1,5 +1,5 @@
 ## LWrap 用法
-  可使用具名slot添加自定义头部右侧内容，默认是关闭按钮。
+  该组件常用于大屏和三维系统;可使用具名slot添加自定义头部右侧内容，默认是关闭按钮。
 :::demo
 
 ```vue
@@ -52,7 +52,7 @@ export default {
 | tit     |       标题名称       |       String        |    --    |   --   |
 | titBg   |      标题背景图      | 绝对路径或者 base64 |    --    |   --   |
 | showBtn | 是否显示容器关闭按钮 |       boolean       |    --    |  true  |
-
+| data-theme | 组件皮肤 | String |    light、dark    |    dark    |
 ## slot
 
 | 属性名 |                   描述                   |

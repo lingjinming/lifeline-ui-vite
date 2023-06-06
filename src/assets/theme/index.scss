@@ -3,7 +3,8 @@
   --baseColor: #2395ff;
   --baseTxtColor: #2b3e4f;
   --baseSubTxtColor: #8b9fb6;
-  --baseBgColor: #2395ff;
+  // 背景相关
+  --baseBgColor: #fff;
   --baseBorderColor: #2395ff;
   --baseBorderRadius: 3px;
   // 按钮
@@ -19,17 +20,24 @@ $curTheme: light;
 $themes: (
   light: (
     color: var(--baseTxtColor),
-    bgColor: #fff,
+    subColor:var(--baseSubTxtColor),
+    color_gis: var(--baseBgColor),
+    bgColor: var(--baseBgColor),
+    bgColor_gis: var(--baseTxtColor),
   ),
   dark: (
-    color: #fff,
-    bgColor: black,
+    color: var(--baseBgColor),
+    subColor:var(--baseBgColor),
+    color_gis: var(--baseBgColor),
+    bgColor: var(--baseTxtColor),
+    bgColor_gis: var(--baseTxtColor),
   ),
 );
 @mixin useTheme() {
   @each $key, $val in $themes {
     $curTheme: $key !global;
-    html[data-theme="#{$key}"] & {
+    html[data-theme="#{$key}"] &,
+    section[data-theme="#{$key}"] & {
       @content;
     }
   }

@@ -1,6 +1,7 @@
 <template>
-  <div
+  <section
     class="l-tabs-box"
+    :data-theme="dataTheme"
     :class="{ 'is-gap': gap }"
     :style="{ gap: gap + 'px' }"
   >
@@ -27,10 +28,18 @@
         </p>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <script lang="ts" setup>
-import { defineComponent, PropType, h, isVue2, ref, onMounted, watch } from "vue-demi";
+import {
+  defineComponent,
+  PropType,
+  h,
+  isVue2,
+  ref,
+  onMounted,
+  watch,
+} from "vue-demi";
 interface ILTabItem {
   label: String;
   img?: String;
@@ -38,9 +47,13 @@ interface ILTabItem {
   params?: any;
 }
 const props = defineProps({
+  dataTheme: {
+    default: "light",
+    type: String,
+  },
   tabs: {
     default() {
-      return [{ label: "default label1" },{ label: "default label2" }];
+      return [{ label: "default label1" }, { label: "default label2" }];
     },
     type: Array as () => PropType<ILTabItem[]>,
   },
@@ -58,48 +71,57 @@ const props = defineProps({
   },
 });
 const emit = defineEmits(["tab-click", "update:modelValue"]);
-const activeName = ref(props.modelValue)
+const activeName = ref(props.modelValue);
 
 const clickTab = (item: ILTabItem) => {
-  activeName.value = item.label
+  activeName.value = item.label;
   emit("update:modelValue", item.label);
   emit("tab-click", item);
 };
-watch(() => props.modelValue,(newval) => {
-  if(!newval){
-    activeName.value =  (props as any).tabs[0]['label']
-  }else{
-    activeName.value = newval
-  }
-},{immediate:true,deep:true})
+watch(
+  () => props.modelValue,
+  (newval) => {
+    if (!newval) {
+      activeName.value = (props as any).tabs[0]["label"];
+    } else {
+      activeName.value = newval;
+    }
+  },
+  { immediate: true, deep: true }
+);
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/theme/index.scss";
+
 .l-tabs-box {
   position: relative;
-  background: #fff;
+
   border-radius: var(--baseBorderRadius);
   display: flex;
   justify-content: space-around;
   gap: 15px;
-  padding: 0 20px;
+  
   margin-bottom: 20px;
   &-item {
     position: relative;
-    background: #fff;
     flex: 1;
     display: flex;
     cursor: pointer;
     padding: 15px 20px;
     align-items: center;
-    color: var(--baseTxtColor);
+    @include useTheme{
+      color: getVar(color);
+      background-color: getVar(bgColor);
+    }
     &:hover::after,
     &.act::after {
       content: "";
       position: absolute;
       bottom: 0;
-      left: 0;
-      width: 100%;
+      left: 15px;
+      right: 15px;
+      width: calc(100% - 30px);
       height: 2px;
       background: var(--baseColor);
       animation: grow 0.3s 1;
@@ -119,14 +141,18 @@ watch(() => props.modelValue,(newval) => {
       padding: 0;
       font-size: 18px;
       line-height: 25px;
-      color: var(--baseTxtColor);
+      @include useTheme{
+        color: getVar(color);
+      }
     }
     p {
       margin: 0;
       padding: 0;
       font-size: 16px;
       line-height: 20px;
-      color: var(--baseSubTxtColor);
+      @include useTheme{
+        color: getVar(subColor);
+      }
     }
   }
   &-img {
@@ -137,15 +163,14 @@ watch(() => props.modelValue,(newval) => {
   &.is-gap {
     background: transparent;
     padding: 0;
-    .l-tabs-box-item{
+    .l-tabs-box-item {
       &:hover::after,
-    &.act::after{
-      left: 10px;
-      right: 10px;
-      width: calc(100% - 20px);
+      &.act::after {
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+      }
     }
-    }
-  
   }
 }
 </style>

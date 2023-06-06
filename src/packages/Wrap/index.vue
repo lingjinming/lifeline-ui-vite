@@ -1,5 +1,5 @@
 <template>
-  <div class="l-wrap" v-if="showWrap">
+  <section class="l-wrap" v-if="showWrap" :data-theme="dataTheme">
     <section class="l-wrap-tit" :style="titStyle">
       <H4>
         <span> {{ tit }} </span>
@@ -10,7 +10,7 @@
     <section class="l-wrap-con">
       <slot></slot>
     </section>
-  </div>
+  </section>
 </template>
 <script lang="ts" setup>
 import { defineComponent, PropType, h, isVue2, ref, computed, useSlots } from "vue-demi";
@@ -21,6 +21,10 @@ export interface ILTabs {
   params?: any;
 }
 const props = defineProps({
+  dataTheme:{
+    default:'dark',
+    type:String
+  },
   tit: {
     type: String,
     default: "默认标题",
@@ -54,18 +58,21 @@ const closeWrap = () => {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/theme/index.scss';
 .l-wrap {
   position: relative;
-  background: rgba(3, 16, 33, 0.85);
   border-radius: var(--baseBorderRadius);
   border: 1px solid var(--baseColor);
-  color: #fff;
 
   &-tit {
     position: relative;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
+    @include useTheme{
+      color: getVar(color_gis);
+      background-color: getVar(bgColor_gis);
+    }
     h4 {
       margin: 0;
       height: 45px;
@@ -82,6 +89,10 @@ const closeWrap = () => {
     padding: 20px;
     height: calc(100% - 45px);
     background: url('./bg_bottom.png') no-repeat center bottom ;
+    @include useTheme{
+      color: getVar(color_gis);
+      background-color: getVar(bgColor_gis);
+    }
   }
 
 }

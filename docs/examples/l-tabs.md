@@ -1,25 +1,27 @@
 ## LTabs 用法
-可显示副标题和图片的tabs
+可显示副标题和图片的tabs,配置data-theme更换皮肤
 :::demo
 
 ```vue
 <template>
   <l-button
     style="margin-bottom:20px"
-    name="切换tab间隔和选中"
+    name="切换tab选中"
     @click="toggleGap"
   />
   <l-tabs
     v-model="activeName"
     :tabs="tabs"
-    :gap="gap"
+    :gap="0"
+    data-theme='light'
     @tab-click="handleClick"
   ></l-tabs>
   <!-- vue2中使用 :modelValue.sync -->
   <l-tabs
     :modelValue.sync="activeName"
     :tabs="tabs"
-    :gap="gap"
+    :gap="20"
+    data-theme='dark'
     @tab-click="handleClick"
   ></l-tabs>
 </template>
@@ -57,15 +59,19 @@ export default {
   },
   methods: {
     handleClick(tab) {
-      console.log(this.activeName);
+      console.log(tab);
     },
     toggleGap() {
       this.activeName = "nestjs3";
-      this.gap ? (this.gap = 0) : (this.gap = 20);
     },
   },
 };
 </script>
+<style>
+.l-detail-box {
+  margin-bottom: 20px;
+}
+</style>
 ```
 
 :::
@@ -78,7 +84,7 @@ export default {
 | v-model    |              vue3中使用，选中项名称                |   String    |    --    | tabs[0]['label'] |
 | tabs       |                tab 数据                 | [TabsItems] |    --    |        []        |
 | gap        |                tab 间隔                 |   Number    |    --    |        0         |
-
+| data-theme | 组件皮肤 | String |    light、dark    |    light    |
 ## TabsItems 属性
 
 | 属性名 |   描述   |  类型  | 可选参数 | 默认值 |

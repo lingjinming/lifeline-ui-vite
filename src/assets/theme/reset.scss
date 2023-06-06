@@ -18,9 +18,3 @@ button{
         opacity: .85;
     }
 }
-
-.l-detail-box-tit{
-    @include useTheme{
-        color: getVar(color);
-    }
-}
