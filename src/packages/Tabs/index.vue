@@ -136,6 +136,7 @@ watch(
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 15px;
     h3 {
       margin: 0;
       padding: 0;
@@ -158,7 +159,6 @@ watch(
   &-img {
     width: 45px;
     height: 45px;
-    margin-right: 15px;
   }
   &.is-gap {
     background: transparent;
