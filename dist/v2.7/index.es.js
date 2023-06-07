@@ -40,12 +40,16 @@ const _sfc_main$3 = defineComponent({
         return props.name || props.lIcon || props.rIcon ? "0 15px" : "0";
       }
     });
+    const click = () => {
+      ctx.emit("click");
+    };
     return {
-      padding
+      padding,
+      click
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_fc309919_lang = "";
+const index_vue_vue_type_style_index_0_scoped_4fc28b41_lang = "";
 function normalizeComponent(scriptExports, render5, staticRenderFns, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
   var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
   if (render5) {
@@ -117,6 +121,9 @@ var _sfc_render$3 = function render() {
     },
     attrs: {
       "type": "button"
+    },
+    on: {
+      "click": _vm.click
     }
   }, "button", _vm.$attrs, false), [_vm.lIcon ? _c("i", {
     staticClass: "l-iconfont",
@@ -129,11 +136,15 @@ var _sfc_render$3 = function render() {
   }) : _vm._e()], 2);
 };
 var _sfc_staticRenderFns$3 = [];
-var __component__$3 = /* @__PURE__ */ normalizeComponent(_sfc_main$3, _sfc_render$3, _sfc_staticRenderFns$3, false, null, "fc309919", null, null);
+var __component__$3 = /* @__PURE__ */ normalizeComponent(_sfc_main$3, _sfc_render$3, _sfc_staticRenderFns$3, false, null, "4fc28b41", null, null);
 const LButton = __component__$3.exports;
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "index",
   props: {
+    dataTheme: {
+      default: "light",
+      type: String
+    },
     tabs: {
       default() {
         return [{
@@ -187,16 +198,19 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_f601ca15_lang = "";
+const index_vue_vue_type_style_index_0_scoped_53757d35_lang = "";
 var _sfc_render$2 = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
-  return _c("div", {
+  return _c("section", {
     staticClass: "l-tabs-box",
     class: {
       "is-gap": _vm.gap
     },
     style: {
       gap: _vm.gap + "px"
+    },
+    attrs: {
+      "data-theme": _vm.dataTheme
     }
   }, _vm._l(_vm.tabs, function(item, i) {
     return _c("div", {
@@ -220,11 +234,15 @@ var _sfc_render$2 = function render2() {
   }), 0);
 };
 var _sfc_staticRenderFns$2 = [];
-var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "f601ca15", null, null);
+var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "53757d35", null, null);
 const LTabs = __component__$2.exports;
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "index",
   props: {
+    dataTheme: {
+      default: "dark",
+      type: String
+    },
     tit: {
       type: String,
       default: "默认标题"
@@ -266,34 +284,38 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const __$_require_36d30f88__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAxRJREFUSEu9VWtIFFEU/s7M7syOuolaRmG1PSyx9M8WCEUaJQZBBdE7eoE9FAkjpCLoBREGQWLZyzKiQiok/4SZZaGYURFtFlFW9o40yV2dnVlnbsy01irrukR2YH7M3HvPd7/zfecMYZCDBjk//iuAAdYDyAAYT7AId595tichD6TaAJsNdo3g1roBjwy8UgOACHCIgF2CXeDh5hng9QJPvAC0/krtB3BaESXGCKo2lFlYBHWTqvL4DplrAxqMBACcEiRLrKAhllmYQN3UpQp8KzxKO/DQNwAA+MwP3mJeFDeZG3Vd/nixMse1s7AaMr6b3yQ9LuXA9jkjl88/ThwnGtx1RSm5kWDLC8rgsq8+sERIWJwvTTp8sIIs1iwTw6f9aCk+tba5qPQRoNO4/Bzn2M1rz5CVjzbWmc9XVbN640LUlvkZ9uFwpbvekDHQRZRUfDM2fl76bfCWFHNFUb6+KNi7wTiaWLj7JCcIw800muZqq6jJaNo69xe7ENHXpjT5WtP4IVOS7jLQCDOX2/MaBI6PinL8osw+ex43z3AtmvgmhNN+QwbrA0q+3jxdHO2oAoeIP0Yz6sa6fB/eZz7NcjSEk7yXBgEsOcBpH3O6ZGXkVGfxbysTsa77D3LfZuddABo9BlzI2vQV2b+ZTDvatPiEY2dzhSmp2wyKPR3ndT059Cl3/VF4uW/AQzkki2AiAxkiJCUuZseeBRGzZhcBxAfekoFp8q0bee0H91dCFtuAWmWgUgVokCwg0h4TsWRdmrRi/XniOLvfjrUmC6uQQWBguu6WL5Wt6iovbUSnux14ZnR7vxEwKlKGWNKzkmz5e8tJFEf5G+65u+5mOkSe7NMy7oDjkwzRdVV5pxbuWuqrr34BuDrCGxWTEocJ+05cJSkyzW/HL+zNy5nKluRXxrt45NkEciTWMaJ4k5nc2aAWrFuElpbWoKOij8g8Vy6XkNWabQhKhE6t40cm1sTd6zXszrWlcVHR1SBEmgxV30l9mZQTlEFwkQdvXA/U8X+9/l//aH99y3BsOijJ+5tF/xTsJ6S4Ia3QeHrnAAAAAElFTkSuQmCC";
-const index_vue_vue_type_style_index_0_scoped_17c7bc91_lang = "";
+const index_vue_vue_type_style_index_0_scoped_f760f227_lang = "";
 var _sfc_render$1 = function render3() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
-  return _setup.showWrap ? _c("div", {
-    staticClass: "l-wrap"
-  }, [_c("section", {
+  return _setup.showWrap ? _c("section", {
+    staticClass: "l-wrap",
+    attrs: {
+      "data-theme": _vm.dataTheme
+    }
+  }, [_c("h4", {
     staticClass: "l-wrap-tit",
     style: _setup.titStyle
-  }, [_c("H4", [_c("span", [_vm._v(" " + _vm._s(_vm.tit) + " ")]), _vm._t("btn"), _vm.showBtn && !_setup.slots.btn ? _c("img", {
-    attrs: {
-      "src": __$_require_36d30f88__
-    },
+  }, [_c("span", [_vm._v(" " + _vm._s(_vm.tit) + " ")]), _vm._t("btn"), _vm.showBtn && !_setup.slots.btn ? _c("span", {
+    staticClass: "img",
     on: {
       "click": _setup.closeWrap
     }
-  }) : _vm._e()], 2)], 1), _c("section", {
+  }) : _vm._e()], 2), _c("section", {
     staticClass: "l-wrap-con"
   }, [_vm._t("default")], 2)]) : _vm._e();
 };
 var _sfc_staticRenderFns$1 = [];
-var __component__$1 = /* @__PURE__ */ normalizeComponent(_sfc_main$1, _sfc_render$1, _sfc_staticRenderFns$1, false, null, "17c7bc91", null, null);
+var __component__$1 = /* @__PURE__ */ normalizeComponent(_sfc_main$1, _sfc_render$1, _sfc_staticRenderFns$1, false, null, "f760f227", null, null);
 const LWrap = __component__$1.exports;
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
   props: {
+    dataTheme: {
+      default: "light",
+      type: String
+    },
     tit: {
-      default: "详情信息",
+      default: "",
       type: String
     },
     details: {
@@ -319,14 +341,19 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_44978bf0_lang = "";
+const index_vue_vue_type_style_index_0_scoped_1509faf9_lang = "";
 var _sfc_render = function render4() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("section", {
-    staticClass: "l-detail-box"
-  }, [_c("h5", {
+    staticClass: "l-detail-box",
+    attrs: {
+      "data-theme": _vm.dataTheme
+    }
+  }, [_vm.tit ? _c("h5", {
     staticClass: "l-detail-box-tit"
-  }, [_vm._v(_vm._s(_vm.tit))]), _c("ul", {
+  }, [_vm._v(_vm._s(_vm.tit))]) : _vm._e(), _c("div", {
+    staticClass: "l-detail-box-con"
+  }, [_vm.details.length ? _c("ul", {
     staticClass: "l-detail-box-ul"
   }, _vm._l(_vm.details, function(item, i) {
     return _c("li", {
@@ -341,13 +368,13 @@ var _sfc_render = function render4() {
           return _setup.click(item);
         }
       }
-    }, [_vm._v(_vm._s(item.val))]) : _c("p", {
+    }, [_vm._v(" " + _vm._s(item.val) + " ")]) : _c("p", {
       staticClass: "val"
     }, [_vm._v(_vm._s(item.val))])]);
-  }), 0)]);
+  }), 0) : _vm._e(), _vm._t("default")], 2)]);
 };
 var _sfc_staticRenderFns = [];
-var __component__ = /* @__PURE__ */ normalizeComponent(_sfc_main, _sfc_render, _sfc_staticRenderFns, false, null, "44978bf0", null, null);
+var __component__ = /* @__PURE__ */ normalizeComponent(_sfc_main, _sfc_render, _sfc_staticRenderFns, false, null, "1509faf9", null, null);
 const LDetail = __component__.exports;
 const index = {
   install(app, options) {

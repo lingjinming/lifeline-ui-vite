@@ -1,13 +1,18 @@
 <template>
   <section class="l-detail-box" :data-theme="dataTheme">
     <h5 v-if="tit" class="l-detail-box-tit">{{ tit }}</h5>
-    <ul class="l-detail-box-ul">
-      <li class="l-detail-box-li" v-for="(item, i) in details" :key="i">
-        <p class="label">{{ item.label }}:</p>
-        <p v-if="item.clickable" class="val clickable" @click="click(item)">{{ item.val }}</p>
-        <p v-else class="val">{{ item.val }}</p>
-      </li>
-    </ul>
+    <div class="l-detail-box-con">
+      <ul class="l-detail-box-ul" v-if="details.length">
+        <li class="l-detail-box-li" v-for="(item, i) in details" :key="i">
+          <p class="label">{{ item.label }}:</p>
+          <p v-if="item.clickable" class="val clickable" @click="click(item)">
+            {{ item.val }}
+          </p>
+          <p v-else class="val">{{ item.val }}</p>
+        </li>
+      </ul>
+      <slot></slot>
+    </div>
   </section>
 </template>
 <script lang="ts" setup>
@@ -26,13 +31,13 @@ interface IDetailItem {
   clickable: Boolean;
 }
 const props = defineProps({
-  dataTheme:{
-    default:'light',
-    type:String
+  dataTheme: {
+    default: "light",
+    type: String,
   },
-  tit:{
-    default:'',
-    type:String
+  tit: {
+    default: "",
+    type: String,
   },
   details: {
     default() {
@@ -41,21 +46,22 @@ const props = defineProps({
     type: Array as () => PropType<IDetailItem[]>,
   },
 });
-const emit = defineEmits(['click']);
-const click = (item => {
-  emit('click',item)
-})
+const emit = defineEmits(["click"]);
+const click = (item) => {
+  emit("click", item);
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/theme/index.scss';
+@import "../../assets/theme/index.scss";
+table,
 ul,
 li,
-h5,p {
+h5,
+p {
   @include clear;
 }
 .l-detail-box {
-
   &-tit {
     position: relative;
     height: 55px;
@@ -64,7 +70,7 @@ h5,p {
     font-weight: 500;
     text-indent: 1em;
     color: var(--baseTxtColor);
-    @include useTheme{
+    @include useTheme {
       color: getVar(color);
       background: getVar(bgColor);
     }
@@ -87,15 +93,18 @@ h5,p {
       border-bottom: 1px solid rgba($color: #bdbdbd, $alpha: 0.2);
     }
   }
-  &-ul {
+  &-con {
     padding: 15px 20px;
+    @include useTheme {
+      color: getVar(subColor);
+      background: getVar(bgColor);
+    }
+  }
+  &-ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
-    @include useTheme{
-      background: getVar(bgColor);
-    }
   }
   &-li {
     display: flex;
@@ -103,14 +112,14 @@ h5,p {
     width: 250px;
     gap: 10px;
     .label {
-      @include useTheme{
-      color: getVar(subColor);
-    }
+      @include useTheme {
+        color: getVar(subColor);
+      }
     }
     .val {
       min-width: 180px;
       word-wrap: break-word;
-      @include useTheme{
+      @include useTheme {
         color: getVar(color);
       }
       &.clickable {
