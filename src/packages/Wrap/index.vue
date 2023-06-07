@@ -68,16 +68,18 @@ const closeWrap = () => {
 .l-wrap {
   position: relative;
   border-radius: var(--baseBorderRadius);
-  border: 1px solid var(--baseColor);
-
   &-tit {
     position: relative;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
-    @include useTheme {
-      color: getVar(color_gis);
-      background-color: getVar(bgColor_gis);
+    @include useTheme{
+      color: getVar(color);
+      background: getVar(bgColor);
+    }
+    @include useTheme{
+      border: getVar(border);
+      border-bottom: none;
     }
     margin: 0;
     height: 45px;
@@ -99,9 +101,13 @@ const closeWrap = () => {
     padding: 20px;
     height: calc(100% - 45px);
     background: url("./bg_bottom.png") no-repeat center bottom;
+    @include useTheme{
+      border: getVar(border);
+      border-top: none;
+    }
     @include useTheme {
-      color: getVar(color_gis);
-      background-color: getVar(bgColor_gis);
+      color: getVar(color);
+      background-color: getVar(bgColor);
     }
   }
 }

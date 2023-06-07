@@ -4,16 +4,17 @@
 
 ```vue
 <template>
-  <l-wrap showBtn tit="面板标题1" :titBg="titBg" @close="close">
+  <l-wrap data-theme='light' showBtn tit="面板标题1" :titBg="titBg" @close="close">
+      <!-- 插槽 自定义头部右侧插槽内容  -->
+    <template #btn>
+        <l-button color="black" bgColor="transparent" lIcon="jia" name="新增" />
+    </template>
     <div>默认内容插槽</div>
     <div>默认内容插槽</div>
   </l-wrap>
 
-  <l-wrap :showBtn="false" tit="面板标题2" :titBg="titBg" @close="close">
-    <!-- 插槽 自定义头部右侧插槽内容  -->
-    <template #btn>
-        <l-button color="#fff" bgColor="transparent" lIcon="jia" name="新增" />
-    </template>
+  <l-wrap tit="面板标题2" :titBg="titBg" @close="close">
+
     <div>默认内容插槽</div>
     <div>默认内容插槽</div>
   </l-wrap>

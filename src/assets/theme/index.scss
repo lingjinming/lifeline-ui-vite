@@ -1,11 +1,10 @@
-/* document.body.style.setProperty('--primaryColor', 'blue'); */
 :root {
   --baseColor: #2395ff;
   --baseTxtColor: #2b3e4f;
   --baseSubTxtColor: #8b9fb6;
   // 背景相关
   --baseBgColor: #fff;
-  --baseBorderColor: #2395ff;
+  --baseBorder:1px solid #2395ff;
   --baseBorderRadius: 3px;
   // 按钮
   --baseBtnBgColor: #2395ff;
@@ -21,14 +20,14 @@ $themes: (
   light: (
     color: var(--baseTxtColor),
     subColor:var(--baseSubTxtColor),
-    color_gis: var(--baseBgColor),
+    border: none,
     bgColor: var(--baseBgColor),
     bgColor_gis: var(--baseTxtColor),
   ),
   dark: (
     color: var(--baseBgColor),
     subColor:var(--baseBgColor),
-    color_gis: var(--baseBgColor),
+    border: var(--baseBorder),
     bgColor: var(--baseTxtColor),
     bgColor_gis: var(--baseTxtColor),
   ),
@@ -37,7 +36,7 @@ $themes: (
   @each $key, $val in $themes {
     $curTheme: $key !global;
     html[data-theme="#{$key}"] &,
-    section[data-theme="#{$key}"] & {
+    section[data-theme="#{$key}"] &{
       @content;
     }
   }

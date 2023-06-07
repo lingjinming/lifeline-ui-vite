@@ -4,7 +4,7 @@
   <div>
     <l-button @click="change" name="切换主题"></l-button>
     <span>{{ versionStr }}</span>
-    <l-detail data-theme="light" @click="click"></l-detail>
+    <l-detail tit="浅浅" data-theme="dark" @click="click"></l-detail>
   </div>
 </template>
 <script>
