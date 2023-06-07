@@ -1,19 +1,25 @@
 <template>
   <section class="l-wrap" v-if="showWrap" :data-theme="dataTheme">
-    <section class="l-wrap-tit" :style="titStyle">
-      <H4>
-        <span> {{ tit }} </span>
-        <slot name="btn"></slot>
-        <img v-if="showBtn && !slots.btn" src="./icon_close.png" @click="closeWrap">
-      </h4>
-    </section>
+    <h4 class="l-wrap-tit" :style="titStyle">
+      <span> {{ tit }} </span>
+      <slot name="btn"></slot>
+      <span class="img" v-if="showBtn && !slots.btn" @click="closeWrap"></span>
+    </h4>
     <section class="l-wrap-con">
       <slot></slot>
     </section>
   </section>
 </template>
 <script lang="ts" setup>
-import { defineComponent, PropType, h, isVue2, ref, computed, useSlots } from "vue-demi";
+import {
+  defineComponent,
+  PropType,
+  h,
+  isVue2,
+  ref,
+  computed,
+  useSlots,
+} from "vue-demi";
 export interface ILTabs {
   label: String;
   img?: String;
@@ -21,9 +27,9 @@ export interface ILTabs {
   params?: any;
 }
 const props = defineProps({
-  dataTheme:{
-    default:'dark',
-    type:String
+  dataTheme: {
+    default: "dark",
+    type: String,
   },
   tit: {
     type: String,
@@ -38,12 +44,12 @@ const props = defineProps({
     default: true,
   },
 });
-let showWrap = ref(true)
+let showWrap = ref(true);
 
 const emit = defineEmits(["close"]);
-const slots= useSlots()
+const slots = useSlots();
 
-console.log(slots)
+console.log(slots);
 
 const titStyle = computed(() => {
   return {
@@ -51,14 +57,14 @@ const titStyle = computed(() => {
   };
 });
 
-const closeWrap = () => { 
-  showWrap.value = false
-  emit('close')
- }
+const closeWrap = () => {
+  showWrap.value = false;
+  emit("close");
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/theme/index.scss';
+@import "../../assets/theme/index.scss";
 .l-wrap {
   position: relative;
   border-radius: var(--baseBorderRadius);
@@ -69,31 +75,34 @@ const closeWrap = () => {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
-    @include useTheme{
+    @include useTheme {
       color: getVar(color_gis);
       background-color: getVar(bgColor_gis);
     }
-    h4 {
-      margin: 0;
-      height: 45px;
-      padding:0 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      img{
-        cursor: pointer;
+    margin: 0;
+    height: 45px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .img {
+      width: 50px;
+      height: 100%;
+      cursor: pointer;
+      background: url("./icon_close.png") no-repeat center;
+      &:hover{
+        background: url("./icon_close_hover.png") no-repeat center;
       }
     }
   }
   &-con {
     padding: 20px;
     height: calc(100% - 45px);
-    background: url('./bg_bottom.png') no-repeat center bottom ;
-    @include useTheme{
+    background: url("./bg_bottom.png") no-repeat center bottom;
+    @include useTheme {
       color: getVar(color_gis);
       background-color: getVar(bgColor_gis);
     }
   }
-
 }
 </style>
