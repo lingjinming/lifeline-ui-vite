@@ -49,7 +49,7 @@ export default {
 
 | 属性名  |         描述         |        类型         | 可选参数 | 默认值 |
 | ------- | :------------------: | :-----------------: | :------: | :----: |
-| tit     |       标题名称       |       String        |    --    |   --   |
+| tit     |       标题       |       String        |    --    |   --   |
 | titBg   |      标题背景图      | 绝对路径或者 base64 |    --    |   --   |
 | showBtn | 是否显示容器关闭按钮 |       boolean       |    --    |  true  |
 | data-theme | 组件皮肤 | String |    light、dark    |    dark    |

@@ -4,7 +4,7 @@
 
 ```vue
 <template>
-  <l-detail data-theme='light' :details="details" @click="click"></l-detail>
+  <l-detail data-theme='light' tit='详情信息' :details="details" @click="click"></l-detail>
   <l-detail data-theme='dark' :details="details" @click="click"></l-detail>
 </template>
 <script>
@@ -41,6 +41,11 @@ export default {
   },
 };
 </script>
+<style>
+.l-detail-box{
+  margin-bottom:20px
+}
+</style>
 ```
 
 :::
@@ -49,7 +54,7 @@ export default {
 
 | 属性名  |    描述     |     类型     | 可选参数 |  默认值  |
 | ------- | :---------: | :----------: | :------: | :------: |
-| tit     |    标题     |    String    |    --    | 详情信息 |
+| tit     |    标题,默认为空,不显示标题     |    String    |    --    | -- |
 | details | detail 数据 | [DetailItem] |    --    |    []    |
 | data-theme | 组件皮肤 | String |    light、dark    |    light    |
 

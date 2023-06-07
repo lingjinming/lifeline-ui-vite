@@ -1,6 +1,6 @@
 <template>
   <section class="l-detail-box" :data-theme="dataTheme">
-    <h5 class="l-detail-box-tit">{{ tit }}</h5>
+    <h5 v-if="tit" class="l-detail-box-tit">{{ tit }}</h5>
     <ul class="l-detail-box-ul">
       <li class="l-detail-box-li" v-for="(item, i) in details" :key="i">
         <p class="label">{{ item.label }}:</p>
@@ -31,7 +31,7 @@ const props = defineProps({
     type:String
   },
   tit:{
-    default:'详情信息',
+    default:'',
     type:String
   },
   details: {
