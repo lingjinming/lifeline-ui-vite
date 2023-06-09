@@ -198,7 +198,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_53757d35_lang = "";
+const index_vue_vue_type_style_index_0_scoped_c37b2f23_lang = "";
 var _sfc_render$2 = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("section", {
@@ -234,7 +234,7 @@ var _sfc_render$2 = function render2() {
   }), 0);
 };
 var _sfc_staticRenderFns$2 = [];
-var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "53757d35", null, null);
+var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "c37b2f23", null, null);
 const LTabs = __component__$2.exports;
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -323,6 +323,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return [];
       },
       type: Array
+    },
+    cols: {
+      default: 3,
+      type: Number
     }
   },
   emits: ["click"],
@@ -330,18 +334,28 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     emit
   }) {
     const props = __props;
+    const getLiStyle = computed(() => {
+      let val = props.cols;
+      if (typeof val == "string") {
+        val = 1;
+      }
+      return {
+        width: `calc(${Math.floor(100 / val)}% - 20px)`
+      };
+    });
     const click = (item) => {
       emit("click", item);
     };
     return {
       __sfc: true,
       props,
+      getLiStyle,
       emit,
       click
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_1509faf9_lang = "";
+const index_vue_vue_type_style_index_0_scoped_f419fbd7_lang = "";
 var _sfc_render = function render4() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("section", {
@@ -358,7 +372,8 @@ var _sfc_render = function render4() {
   }, _vm._l(_vm.details, function(item, i) {
     return _c("li", {
       key: i,
-      staticClass: "l-detail-box-li"
+      staticClass: "l-detail-box-li",
+      style: _setup.getLiStyle
     }, [_c("p", {
       staticClass: "label"
     }, [_vm._v(_vm._s(item.label) + ":")]), item.clickable ? _c("p", {
@@ -374,7 +389,7 @@ var _sfc_render = function render4() {
   }), 0) : _vm._e(), _vm._t("default")], 2)]);
 };
 var _sfc_staticRenderFns = [];
-var __component__ = /* @__PURE__ */ normalizeComponent(_sfc_main, _sfc_render, _sfc_staticRenderFns, false, null, "1509faf9", null, null);
+var __component__ = /* @__PURE__ */ normalizeComponent(_sfc_main, _sfc_render, _sfc_staticRenderFns, false, null, "f419fbd7", null, null);
 const LDetail = __component__.exports;
 const index = {
   install(app, options) {

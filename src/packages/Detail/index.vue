@@ -3,7 +3,7 @@
     <h5 v-if="tit" class="l-detail-box-tit">{{ tit }}</h5>
     <div class="l-detail-box-con">
       <ul class="l-detail-box-ul" v-if="details.length">
-        <li class="l-detail-box-li" v-for="(item, i) in details" :key="i">
+        <li :style="getLiStyle" class="l-detail-box-li" v-for="(item, i) in details" :key="i">
           <p class="label">{{ item.label }}:</p>
           <p v-if="item.clickable" class="val clickable" @click="click(item)">
             {{ item.val }}
@@ -24,6 +24,7 @@ import {
   ref,
   onMounted,
   watch,
+  computed,
 } from "vue-demi";
 interface IDetailItem {
   label: String;
@@ -45,7 +46,20 @@ const props = defineProps({
     },
     type: Array as () => PropType<IDetailItem[]>,
   },
+  cols:{
+    default:3,
+    type: Number
+  }
 });
+const getLiStyle = computed(() => {
+  let val = props.cols
+  if(typeof val == 'string'){
+    val = 1
+  }
+  return {
+    width: `calc(${Math.floor(100/val)}% - 20px)`
+  }
+})
 const emit = defineEmits(["click"]);
 const click = (item) => {
   emit("click", item);
@@ -103,15 +117,14 @@ p {
   &-ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 20px;
   }
   &-li {
     display: flex;
     align-items: center;
-    width: 250px;
     gap: 10px;
     .label {
+      white-space: nowrap;
       @include useTheme {
         color: getVar(subColor);
       }

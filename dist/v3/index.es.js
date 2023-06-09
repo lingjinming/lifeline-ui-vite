@@ -168,7 +168,7 @@ const _sfc_main$2 = defineComponent({
     };
   }
 });
-var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-14fe41dd"]]);
+var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-779c4180"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
 const _hoisted_1$1 = ["data-theme"];
 const _hoisted_2$1 = {
@@ -265,12 +265,26 @@ const _sfc_main = defineComponent({
         return [];
       },
       type: Array
+    },
+    cols: {
+      default: 3,
+      type: Number
     }
   },
   emits: ["click"],
   setup(__props, {
     emit
   }) {
+    const props = __props;
+    const getLiStyle = computed(() => {
+      let val = props.cols;
+      if (typeof val == "string") {
+        val = 1;
+      }
+      return {
+        width: `calc(${Math.floor(100 / val)}% - 20px)`
+      };
+    });
     const click = (item) => {
       emit("click", item);
     };
@@ -280,18 +294,19 @@ const _sfc_main = defineComponent({
         "data-theme": __props.dataTheme
       }, [__props.tit ? (openBlock(), createElementBlock("h5", _hoisted_2, toDisplayString(__props.tit), 1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_3, [__props.details.length ? (openBlock(), createElementBlock("ul", _hoisted_4, [(openBlock(true), createElementBlock(Fragment, null, renderList(__props.details, (item, i) => {
         return openBlock(), createElementBlock("li", {
+          style: normalizeStyle(unref(getLiStyle)),
           class: "l-detail-box-li",
           key: i
         }, [createElementVNode("p", _hoisted_5, toDisplayString(item.label) + ":", 1), item.clickable ? (openBlock(), createElementBlock("p", {
           key: 0,
           class: "val clickable",
           onClick: ($event) => click(item)
-        }, toDisplayString(item.val), 9, _hoisted_6)) : (openBlock(), createElementBlock("p", _hoisted_7, toDisplayString(item.val), 1))]);
+        }, toDisplayString(item.val), 9, _hoisted_6)) : (openBlock(), createElementBlock("p", _hoisted_7, toDisplayString(item.val), 1))], 4);
       }), 128))])) : createCommentVNode("", true), renderSlot(_ctx.$slots, "default", {}, void 0, true)])], 8, _hoisted_1);
     };
   }
 });
-var LDetail = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-5103c810"]]);
+var LDetail = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-816fb3a4"]]);
 var index = {
   install(app, options) {
     app.component("LButton", LButton);
