@@ -9,7 +9,7 @@ const tabs = reactive([
 ])
 let activeName = ref('label2')
 console.warn(`Vue env: Vue3:${isVue3} -- Vue2: ${isVue2}`)
-const click = (item => {
+const click = (() => {
   console.log(activeName)
   activeName.value == 'label2' ? activeName.value = '122' :activeName.value = 'label2'
 })

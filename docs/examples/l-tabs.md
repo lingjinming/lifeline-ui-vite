@@ -39,8 +39,8 @@ export default {
           },
         },
         {
-          label: "nestjs2",
-          subTit: "nestjs",
+          label: 0,
+          subTit: 0,
           params: {
             key2: "val2",
           },

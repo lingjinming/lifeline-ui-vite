@@ -23,7 +23,7 @@
         <h3>
           {{ item.label }}
         </h3>
-        <p v-if="item.subTit">
+        <p>
           {{ item.subTit }}
         </p>
       </div>
