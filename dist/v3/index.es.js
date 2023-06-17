@@ -89,9 +89,6 @@ const _hoisted_3$1 = ["src"];
 const _hoisted_4$1 = {
   class: "l-tabs-box-content"
 };
-const _hoisted_5$1 = {
-  key: 0
-};
 const _sfc_main$2 = defineComponent({
   __name: "index",
   props: {
@@ -163,12 +160,12 @@ const _sfc_main$2 = defineComponent({
           key: 0,
           class: "l-tabs-box-img",
           src: item.img
-        }, null, 8, _hoisted_3$1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_4$1, [createElementVNode("h3", null, toDisplayString(item.label), 1), item.subTit ? (openBlock(), createElementBlock("p", _hoisted_5$1, toDisplayString(item.subTit), 1)) : createCommentVNode("", true)])], 10, _hoisted_2$2);
+        }, null, 8, _hoisted_3$1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_4$1, [createElementVNode("h3", null, toDisplayString(item.label), 1), createElementVNode("p", null, toDisplayString(item.subTit), 1)])], 10, _hoisted_2$2);
       }), 128))], 14, _hoisted_1$2);
     };
   }
 });
-var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-779c4180"]]);
+var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-5eabea2a"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
 const _hoisted_1$1 = ["data-theme"];
 const _hoisted_2$1 = {

@@ -198,7 +198,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_c37b2f23_lang = "";
+const index_vue_vue_type_style_index_0_scoped_569a2826_lang = "";
 var _sfc_render$2 = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("section", {
@@ -230,11 +230,11 @@ var _sfc_render$2 = function render2() {
       }
     }) : _vm._e(), _c("div", {
       staticClass: "l-tabs-box-content"
-    }, [_c("h3", [_vm._v(" " + _vm._s(item.label) + " ")]), item.subTit ? _c("p", [_vm._v(" " + _vm._s(item.subTit) + " ")]) : _vm._e()])]);
+    }, [_c("h3", [_vm._v(" " + _vm._s(item.label) + " ")]), _c("p", [_vm._v(" " + _vm._s(item.subTit) + " ")])])]);
   }), 0);
 };
 var _sfc_staticRenderFns$2 = [];
-var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "c37b2f23", null, null);
+var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "569a2826", null, null);
 const LTabs = __component__$2.exports;
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "index",
