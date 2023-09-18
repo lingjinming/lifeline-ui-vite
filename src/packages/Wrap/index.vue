@@ -5,7 +5,7 @@
       <slot name="btn"></slot>
       <span class="img" v-if="showBtn && !slots.btn" @click="closeWrap"></span>
     </h4>
-    <section class="l-wrap-con">
+    <section class="l-wrap-con" :style="conStyle">
       <slot></slot>
     </section>
   </section>
@@ -39,6 +39,10 @@ const props = defineProps({
     type: String,
     default: "https://www.nestjs.com.cn/img/logo.png",
   },
+  conBg:{
+    type: String,
+    default: '/img/logo.png'
+  },
   showBtn: {
     type: Boolean,
     default: true,
@@ -56,7 +60,11 @@ const titStyle = computed(() => {
     backgroundImage: `url(${props.titBg})`,
   };
 });
-
+const conStyle = computed(() => {
+  return {
+    backgroundImage: `url(${props.titBg})`,
+  };
+});
 const closeWrap = () => {
   showWrap.value = false;
   emit("close");
@@ -67,6 +75,7 @@ const closeWrap = () => {
 @import "../../assets/theme/index.scss";
 .l-wrap {
   position: relative;
+  width: 100%;
   border-radius: var(--baseBorderRadius);
   &-tit {
     position: relative;
@@ -98,9 +107,8 @@ const closeWrap = () => {
     }
   }
   &-con {
-    padding: 20px;
+    padding:0 20px;
     height: calc(100% - 45px);
-    background: url("./bg_bottom.png") no-repeat center bottom;
     @include useTheme{
       border: getVar(border);
       border-top: none;

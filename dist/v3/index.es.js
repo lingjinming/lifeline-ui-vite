@@ -84,7 +84,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
 var LButton = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render], ["__scopeId", "data-v-7af75446"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$2 = "";
 const _hoisted_1$2 = ["data-theme"];
-const _hoisted_2$2 = ["onClick"];
+const _hoisted_2$1 = ["onClick"];
 const _hoisted_3$1 = ["src"];
 const _hoisted_4$1 = {
   class: "l-tabs-box-content"
@@ -117,6 +117,10 @@ const _sfc_main$2 = defineComponent({
     gap: {
       default: 0,
       type: Number
+    },
+    clickable: {
+      default: true,
+      type: Boolean
     }
   },
   emits: ["tab-click", "update:modelValue"],
@@ -126,8 +130,9 @@ const _sfc_main$2 = defineComponent({
     const props = __props;
     const activeName = ref(props.modelValue);
     const clickTab = (item) => {
+      if (!props.clickable)
+        return;
       activeName.value = item.label;
-      emit("update:modelValue", item.label);
       emit("tab-click", item);
     };
     watch(() => props.modelValue, (newval) => {
@@ -153,24 +158,21 @@ const _sfc_main$2 = defineComponent({
         return openBlock(), createElementBlock("div", {
           key: i,
           class: normalizeClass(["l-tabs-box-item", {
-            act: unref(activeName) == item.label
+            act: __props.clickable ? unref(activeName) == item.label : activeName.value = ""
           }]),
           onClick: ($event) => clickTab(item)
         }, [item.img ? (openBlock(), createElementBlock("img", {
           key: 0,
           class: "l-tabs-box-img",
           src: item.img
-        }, null, 8, _hoisted_3$1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_4$1, [createElementVNode("h3", null, toDisplayString(item.label), 1), createElementVNode("p", null, toDisplayString(item.subTit), 1)])], 10, _hoisted_2$2);
+        }, null, 8, _hoisted_3$1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_4$1, [createElementVNode("h3", null, toDisplayString(item.label), 1), createElementVNode("p", null, toDisplayString(item.subTit), 1)])], 10, _hoisted_2$1);
       }), 128))], 14, _hoisted_1$2);
     };
   }
 });
-var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-5eabea2a"]]);
+var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-912b06d8"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
 const _hoisted_1$1 = ["data-theme"];
-const _hoisted_2$1 = {
-  class: "l-wrap-con"
-};
 const _sfc_main$1 = defineComponent({
   __name: "index",
   props: {
@@ -186,6 +188,10 @@ const _sfc_main$1 = defineComponent({
       type: String,
       default: "https://www.nestjs.com.cn/img/logo.png"
     },
+    conBg: {
+      type: String,
+      default: "/img/logo.png"
+    },
     showBtn: {
       type: Boolean,
       default: true
@@ -200,6 +206,11 @@ const _sfc_main$1 = defineComponent({
     const slots = useSlots();
     console.log(slots);
     const titStyle = computed(() => {
+      return {
+        backgroundImage: `url(${props.titBg})`
+      };
+    });
+    const conStyle = computed(() => {
       return {
         backgroundImage: `url(${props.titBg})`
       };
@@ -220,11 +231,14 @@ const _sfc_main$1 = defineComponent({
         key: 0,
         class: "img",
         onClick: closeWrap
-      })) : createCommentVNode("", true)], 4), createElementVNode("section", _hoisted_2$1, [renderSlot(_ctx.$slots, "default", {}, void 0, true)])], 8, _hoisted_1$1)) : createCommentVNode("", true);
+      })) : createCommentVNode("", true)], 4), createElementVNode("section", {
+        class: "l-wrap-con",
+        style: normalizeStyle(unref(conStyle))
+      }, [renderSlot(_ctx.$slots, "default", {}, void 0, true)], 4)], 8, _hoisted_1$1)) : createCommentVNode("", true);
     };
   }
 });
-var LWrap = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-be93613e"]]);
+var LWrap = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-07f61fe4"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _hoisted_1 = ["data-theme"];
 const _hoisted_2 = {

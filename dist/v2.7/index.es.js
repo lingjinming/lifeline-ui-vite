@@ -166,6 +166,10 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     gap: {
       default: 0,
       type: Number
+    },
+    clickable: {
+      default: true,
+      type: Boolean
     }
   },
   emits: ["tab-click", "update:modelValue"],
@@ -175,8 +179,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     const props = __props;
     const activeName = ref(props.modelValue);
     const clickTab = (item) => {
+      if (!props.clickable)
+        return;
       activeName.value = item.label;
-      emit("update:modelValue", item.label);
       emit("tab-click", item);
     };
     watch(() => props.modelValue, (newval) => {
@@ -198,7 +203,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_569a2826_lang = "";
+const index_vue_vue_type_style_index_0_scoped_b667ad94_lang = "";
 var _sfc_render$2 = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("section", {
@@ -216,7 +221,7 @@ var _sfc_render$2 = function render2() {
     return _c("div", {
       key: i,
       class: ["l-tabs-box-item", {
-        act: _setup.activeName == item.label
+        act: _vm.clickable ? _setup.activeName == item.label : _setup.activeName = ""
       }],
       on: {
         "click": function($event) {
@@ -234,7 +239,7 @@ var _sfc_render$2 = function render2() {
   }), 0);
 };
 var _sfc_staticRenderFns$2 = [];
-var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "569a2826", null, null);
+var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "b667ad94", null, null);
 const LTabs = __component__$2.exports;
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -250,6 +255,10 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     titBg: {
       type: String,
       default: "https://www.nestjs.com.cn/img/logo.png"
+    },
+    conBg: {
+      type: String,
+      default: "/img/logo.png"
     },
     showBtn: {
       type: Boolean,
@@ -269,6 +278,11 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         backgroundImage: `url(${props.titBg})`
       };
     });
+    const conStyle = computed(() => {
+      return {
+        backgroundImage: `url(${props.titBg})`
+      };
+    });
     const closeWrap = () => {
       showWrap.value = false;
       emit("close");
@@ -280,11 +294,12 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       emit,
       slots,
       titStyle,
+      conStyle,
       closeWrap
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_f760f227_lang = "";
+const index_vue_vue_type_style_index_0_scoped_c751acff_lang = "";
 var _sfc_render$1 = function render3() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _setup.showWrap ? _c("section", {
@@ -301,11 +316,12 @@ var _sfc_render$1 = function render3() {
       "click": _setup.closeWrap
     }
   }) : _vm._e()], 2), _c("section", {
-    staticClass: "l-wrap-con"
+    staticClass: "l-wrap-con",
+    style: _setup.conStyle
   }, [_vm._t("default")], 2)]) : _vm._e();
 };
 var _sfc_staticRenderFns$1 = [];
-var __component__$1 = /* @__PURE__ */ normalizeComponent(_sfc_main$1, _sfc_render$1, _sfc_staticRenderFns$1, false, null, "f760f227", null, null);
+var __component__$1 = /* @__PURE__ */ normalizeComponent(_sfc_main$1, _sfc_render$1, _sfc_staticRenderFns$1, false, null, "c751acff", null, null);
 const LWrap = __component__$1.exports;
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",

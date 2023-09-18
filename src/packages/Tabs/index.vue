@@ -11,7 +11,7 @@
       :class="[
         'l-tabs-box-item',
         {
-          act: activeName == item.label,
+          act: clickable ? activeName == item.label : activeName = '',
         },
       ]"
       @click="clickTab(item)"
@@ -69,13 +69,17 @@ const props = defineProps({
     default: 0,
     type: Number,
   },
+  clickable: {
+    default: true,
+    type: Boolean,
+  },
 });
 const emit = defineEmits(["tab-click", "update:modelValue"]);
 const activeName = ref(props.modelValue);
 
 const clickTab = (item: ILTabItem) => {
+  if(!props.clickable) return
   activeName.value = item.label;
-  emit("update:modelValue", item.label);
   emit("tab-click", item);
 };
 watch(
@@ -96,20 +100,19 @@ watch(
 
 .l-tabs-box {
   position: relative;
-
   border-radius: var(--baseBorderRadius);
   display: flex;
   justify-content: space-around;
   gap: 15px;
-  
   margin-bottom: 20px;
   &-item {
     position: relative;
-    flex: 1;
     display: flex;
     cursor: pointer;
     padding: 15px 20px;
     align-items: center;
+    min-width: 215px;
+    max-width: 300px;
     @include useTheme{
       color: getVar(color);
       background-color: getVar(bgColor);
@@ -140,8 +143,10 @@ watch(
     h3 {
       margin: 0;
       padding: 0;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 25px;
+      height: 25px;
+      white-space: nowrap;
       @include useTheme{
         color: getVar(color);
       }
@@ -163,6 +168,8 @@ watch(
   &.is-gap {
     background: transparent;
     padding: 0;
+    flex-wrap: wrap;
+    justify-content: start;
     .l-tabs-box-item {
       &:hover::after,
       &.act::after {

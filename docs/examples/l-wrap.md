@@ -14,7 +14,6 @@
   </l-wrap>
 
   <l-wrap tit="面板标题2" :titBg="titBg" @close="close">
-
     <div>默认内容插槽</div>
     <div>默认内容插槽</div>
   </l-wrap>
@@ -40,6 +39,9 @@ export default {
 <style>
 .l-wrap {
   margin-bottom: 20px;
+}
+.l-wrap div{
+  line-height:35px;
 }
 </style>
 ```
