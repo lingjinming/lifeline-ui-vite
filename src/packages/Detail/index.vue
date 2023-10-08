@@ -2,13 +2,13 @@
   <section class="l-detail-box" :data-theme="dataTheme">
     <h5 v-if="tit" class="l-detail-box-tit">{{ tit }}</h5>
     <div class="l-detail-box-con">
-      <ul class="l-detail-box-ul" v-if="details.length">
-        <li :style="getLiStyle" class="l-detail-box-li" v-for="(item, i) in details" :key="i">
-          <p class="label">{{ item.label }}:</p>
-          <p v-if="item.clickable" class="val clickable" @click="click(item)">
+      <ul class="l-detail-box-ul" v-if="details.length" :style="getUlStyle" >
+        <li class="l-detail-box-li" v-for="(item, i) in details" :key="i">
+          <span class="label">{{ item.label }}:</span>
+          <span v-if="item.clickable" class="val clickable" @click="click(item)">
             {{ item.val }}
-          </p>
-          <p v-else class="val">{{ item.val }}</p>
+          </span>
+          <span v-else class="val">{{ item.val }}</span>
         </li>
       </ul>
       <slot></slot>
@@ -51,13 +51,13 @@ const props = defineProps({
     type: Number
   }
 });
-const getLiStyle = computed(() => {
+const getUlStyle = computed(() => {
   let val = props.cols
   if(typeof val == 'string'){
     val = 1
   }
   return {
-    width: `calc(${Math.floor(100/val)}% - 20px)`
+    'grid-template-columns': `repeat(${val},1fr)`
   }
 })
 const emit = defineEmits(["click"]);
@@ -115,8 +115,9 @@ p {
     }
   }
   &-ul {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    // row-gap: 20px;
+    // column-gap: 20px;
     gap: 20px;
   }
   &-li {
@@ -130,8 +131,6 @@ p {
       }
     }
     .val {
-      min-width: 180px;
-      word-wrap: break-word;
       @include useTheme {
         color: getVar(color);
       }
