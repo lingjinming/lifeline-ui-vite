@@ -2,7 +2,7 @@
   <section
     class="l-tabs-box"
     :data-theme="dataTheme"
-    :class="{ 'is-gap': gap }"
+    :class="{ 'is-gap': gap, 'flex-wrap': wrap }"
     :style="{ gap: gap + 'px' }"
   >
     <div
@@ -11,7 +11,7 @@
       :class="[
         'l-tabs-box-item',
         {
-          act: clickable ? activeName == item.label : activeName = '',
+          act: clickable ? activeName == item.label : (activeName = ''),
         },
       ]"
       @click="clickTab(item)"
@@ -65,6 +65,10 @@ const props = defineProps({
     default: "",
     type: String,
   },
+  wrap: {
+    default: false,
+    type: Boolean,
+  },
   gap: {
     default: 0,
     type: Number,
@@ -78,7 +82,7 @@ const emit = defineEmits(["tab-click", "update:modelValue"]);
 const activeName = ref(props.modelValue);
 
 const clickTab = (item: ILTabItem) => {
-  if(!props.clickable) return
+  if (!props.clickable) return;
   activeName.value = item.label;
   emit("tab-click", item);
 };
@@ -108,12 +112,12 @@ watch(
   &-item {
     position: relative;
     display: flex;
+    width: 100%;
     cursor: pointer;
     padding: 15px 20px;
     align-items: center;
-    min-width: 215px;
-    max-width: 300px;
-    @include useTheme{
+
+    @include useTheme {
       color: getVar(color);
       background-color: getVar(bgColor);
     }
@@ -147,7 +151,7 @@ watch(
       line-height: 25px;
       height: 25px;
       white-space: nowrap;
-      @include useTheme{
+      @include useTheme {
         color: getVar(color);
       }
     }
@@ -156,7 +160,7 @@ watch(
       padding: 0;
       font-size: 16px;
       line-height: 20px;
-      @include useTheme{
+      @include useTheme {
         color: getVar(subColor);
       }
     }
@@ -168,7 +172,6 @@ watch(
   &.is-gap {
     background: transparent;
     padding: 0;
-    flex-wrap: wrap;
     justify-content: start;
     .l-tabs-box-item {
       &:hover::after,
@@ -177,6 +180,13 @@ watch(
         right: 10px;
         width: calc(100% - 20px);
       }
+    }
+  }
+  &.flex-wrap {
+    flex-wrap: wrap;
+    .l-tabs-box-item {
+      min-width: 245px;
+      max-width: fit-content;
     }
   }
 }

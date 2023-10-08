@@ -163,6 +163,10 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       default: "",
       type: String
     },
+    wrap: {
+      default: false,
+      type: Boolean
+    },
     gap: {
       default: 0,
       type: Number
@@ -203,13 +207,14 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_b667ad94_lang = "";
+const index_vue_vue_type_style_index_0_scoped_0b3e297c_lang = "";
 var _sfc_render$2 = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("section", {
     staticClass: "l-tabs-box",
     class: {
-      "is-gap": _vm.gap
+      "is-gap": _vm.gap,
+      "flex-wrap": _vm.wrap
     },
     style: {
       gap: _vm.gap + "px"
@@ -239,7 +244,7 @@ var _sfc_render$2 = function render2() {
   }), 0);
 };
 var _sfc_staticRenderFns$2 = [];
-var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "b667ad94", null, null);
+var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "0b3e297c", null, null);
 const LTabs = __component__$2.exports;
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -350,13 +355,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     emit
   }) {
     const props = __props;
-    const getLiStyle = computed(() => {
+    const getUlStyle = computed(() => {
       let val = props.cols;
       if (typeof val == "string") {
         val = 1;
       }
       return {
-        width: `calc(${Math.floor(100 / val)}% - 20px)`
+        "grid-template-columns": `repeat(${val},1fr)`
       };
     });
     const click = (item) => {
@@ -365,13 +370,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return {
       __sfc: true,
       props,
-      getLiStyle,
+      getUlStyle,
       emit,
       click
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_f419fbd7_lang = "";
+const index_vue_vue_type_style_index_0_scoped_ae4be4a5_lang = "";
 var _sfc_render = function render4() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("section", {
@@ -384,28 +389,28 @@ var _sfc_render = function render4() {
   }, [_vm._v(_vm._s(_vm.tit))]) : _vm._e(), _c("div", {
     staticClass: "l-detail-box-con"
   }, [_vm.details.length ? _c("ul", {
-    staticClass: "l-detail-box-ul"
+    staticClass: "l-detail-box-ul",
+    style: _setup.getUlStyle
   }, _vm._l(_vm.details, function(item, i) {
     return _c("li", {
       key: i,
-      staticClass: "l-detail-box-li",
-      style: _setup.getLiStyle
-    }, [_c("p", {
+      staticClass: "l-detail-box-li"
+    }, [_c("span", {
       staticClass: "label"
-    }, [_vm._v(_vm._s(item.label) + ":")]), item.clickable ? _c("p", {
+    }, [_vm._v(_vm._s(item.label) + ":")]), item.clickable ? _c("span", {
       staticClass: "val clickable",
       on: {
         "click": function($event) {
           return _setup.click(item);
         }
       }
-    }, [_vm._v(" " + _vm._s(item.val) + " ")]) : _c("p", {
+    }, [_vm._v(" " + _vm._s(item.val) + " ")]) : _c("span", {
       staticClass: "val"
     }, [_vm._v(_vm._s(item.val))])]);
   }), 0) : _vm._e(), _vm._t("default")], 2)]);
 };
 var _sfc_staticRenderFns = [];
-var __component__ = /* @__PURE__ */ normalizeComponent(_sfc_main, _sfc_render, _sfc_staticRenderFns, false, null, "f419fbd7", null, null);
+var __component__ = /* @__PURE__ */ normalizeComponent(_sfc_main, _sfc_render, _sfc_staticRenderFns, false, null, "ae4be4a5", null, null);
 const LDetail = __component__.exports;
 const index = {
   install(app, options) {

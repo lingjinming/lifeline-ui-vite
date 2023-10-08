@@ -116,9 +116,8 @@ p {
   }
   &-ul {
     display: grid;
-    // row-gap: 20px;
-    // column-gap: 20px;
     gap: 20px;
+    word-break: break-all;
   }
   &-li {
     display: flex;

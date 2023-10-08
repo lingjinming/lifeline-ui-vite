@@ -4,9 +4,7 @@
   <div>
     <l-button @click="change" name="切换主题"></l-button>
     <span>{{ versionStr }}</span>
-    <l-detail tit="浅浅" :details="details" data-theme="dark" @click="click" >
-    <div>1111</div>
-    </l-detail>
+    <l-tabs :tabs="tabs" :gap="10"></l-tabs>
   </div>
 </template>
 <script>
@@ -17,7 +15,7 @@ export default{
     return{
       versionStr: isVue2 ? 'Vue2' : 'Vue3',
       activeName:'2',
-      tabs:[{label:'1'},{label:'2'},{label:'3'}],
+      tabs:[{label:'1'},{label:'2'},{label:'2'},{label:'3'}],
       details: [
         {
           label: "label1",

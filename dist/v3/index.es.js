@@ -114,6 +114,10 @@ const _sfc_main$2 = defineComponent({
       default: "",
       type: String
     },
+    wrap: {
+      default: false,
+      type: Boolean
+    },
     gap: {
       default: 0,
       type: Number
@@ -148,7 +152,8 @@ const _sfc_main$2 = defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("section", {
         class: normalizeClass(["l-tabs-box", {
-          "is-gap": __props.gap
+          "is-gap": __props.gap,
+          "flex-wrap": __props.wrap
         }]),
         "data-theme": __props.dataTheme,
         style: normalizeStyle({
@@ -170,7 +175,7 @@ const _sfc_main$2 = defineComponent({
     };
   }
 });
-var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-912b06d8"]]);
+var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-2b2fa3ba"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
 const _hoisted_1$1 = ["data-theme"];
 const _sfc_main$1 = defineComponent({
@@ -249,14 +254,10 @@ const _hoisted_3 = {
   class: "l-detail-box-con"
 };
 const _hoisted_4 = {
-  key: 0,
-  class: "l-detail-box-ul"
-};
-const _hoisted_5 = {
   class: "label"
 };
-const _hoisted_6 = ["onClick"];
-const _hoisted_7 = {
+const _hoisted_5 = ["onClick"];
+const _hoisted_6 = {
   key: 1,
   class: "val"
 };
@@ -287,13 +288,13 @@ const _sfc_main = defineComponent({
     emit
   }) {
     const props = __props;
-    const getLiStyle = computed(() => {
+    const getUlStyle = computed(() => {
       let val = props.cols;
       if (typeof val == "string") {
         val = 1;
       }
       return {
-        width: `calc(${Math.floor(100 / val)}% - 20px)`
+        "grid-template-columns": `repeat(${val},1fr)`
       };
     });
     const click = (item) => {
@@ -303,21 +304,24 @@ const _sfc_main = defineComponent({
       return openBlock(), createElementBlock("section", {
         class: "l-detail-box",
         "data-theme": __props.dataTheme
-      }, [__props.tit ? (openBlock(), createElementBlock("h5", _hoisted_2, toDisplayString(__props.tit), 1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_3, [__props.details.length ? (openBlock(), createElementBlock("ul", _hoisted_4, [(openBlock(true), createElementBlock(Fragment, null, renderList(__props.details, (item, i) => {
+      }, [__props.tit ? (openBlock(), createElementBlock("h5", _hoisted_2, toDisplayString(__props.tit), 1)) : createCommentVNode("", true), createElementVNode("div", _hoisted_3, [__props.details.length ? (openBlock(), createElementBlock("ul", {
+        key: 0,
+        class: "l-detail-box-ul",
+        style: normalizeStyle(unref(getUlStyle))
+      }, [(openBlock(true), createElementBlock(Fragment, null, renderList(__props.details, (item, i) => {
         return openBlock(), createElementBlock("li", {
-          style: normalizeStyle(unref(getLiStyle)),
           class: "l-detail-box-li",
           key: i
-        }, [createElementVNode("p", _hoisted_5, toDisplayString(item.label) + ":", 1), item.clickable ? (openBlock(), createElementBlock("p", {
+        }, [createElementVNode("span", _hoisted_4, toDisplayString(item.label) + ":", 1), item.clickable ? (openBlock(), createElementBlock("span", {
           key: 0,
           class: "val clickable",
           onClick: ($event) => click(item)
-        }, toDisplayString(item.val), 9, _hoisted_6)) : (openBlock(), createElementBlock("p", _hoisted_7, toDisplayString(item.val), 1))], 4);
-      }), 128))])) : createCommentVNode("", true), renderSlot(_ctx.$slots, "default", {}, void 0, true)])], 8, _hoisted_1);
+        }, toDisplayString(item.val), 9, _hoisted_5)) : (openBlock(), createElementBlock("span", _hoisted_6, toDisplayString(item.val), 1))]);
+      }), 128))], 4)) : createCommentVNode("", true), renderSlot(_ctx.$slots, "default", {}, void 0, true)])], 8, _hoisted_1);
     };
   }
 });
-var LDetail = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-816fb3a4"]]);
+var LDetail = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-d3b07884"]]);
 var index = {
   install(app, options) {
     app.component("LButton", LButton);

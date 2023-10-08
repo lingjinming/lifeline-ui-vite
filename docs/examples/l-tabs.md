@@ -22,6 +22,14 @@
     :clickable="false"
     @tab-click="handleClick"
   ></l-tabs>
+
+    <l-tabs
+    data-theme="dark"
+    :modelValue.sync="activeName"
+    :tabs="tabs"
+    :gap="20"
+    wrap
+  ></l-tabs>
 </template>
 <script>
 export default {
@@ -82,8 +90,9 @@ export default {
 | v-model    |         vue3 中使用，选中项名称         |   String    |     --      | tabs[0]['label'] |
 | tabs       |                tab 数据                 | [TabsItems] |     --      |        []        |
 | gap        |                tab 间隔                 |   Number    |     --      |        0         |
-| data-theme |                组件皮肤                 |   String    | light、dark |      light       |
+| data-theme |                组件皮肤                 |   String    | light,dark |      light       |
 | clickable  |     是否可点击，不可点击时无下划线      |   Boolean   | true,false  |       true       |
+| wrap  |     是否换行      |   Boolean   | true,false  |       false       |
 
 ## TabsItems 属性
 
