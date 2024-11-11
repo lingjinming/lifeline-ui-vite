@@ -2,7 +2,7 @@
   <section
     class="l-tabs-box"
     :data-theme="dataTheme"
-    :class="{ 'is-gap': gap, 'flex-wrap': wrap }"
+    :class="{ 'is-gap': gap, 'flex-wrap': wrap ,'disabled':!clickable}"
     :style="{ gap: gap + 'px' }"
   >
     <div
@@ -11,7 +11,7 @@
       :class="[
         'l-tabs-box-item',
         {
-          act: clickable ? activeName == item.label : (activeName = ''),
+          act: clickable && activeName == item.label,
         },
       ]"
       @click="clickTab(item)"
@@ -79,16 +79,18 @@ const props = defineProps({
   },
 });
 const emit = defineEmits(["tab-click", "update:modelValue"]);
-const activeName = ref(props.modelValue);
+const activeName = ref('');
 
 const clickTab = (item: ILTabItem) => {
   if (!props.clickable) return;
   activeName.value = item.label;
   emit("tab-click", item);
+  emit("update:modelValue", item.label);
 };
 watch(
   () => props.modelValue,
   (newval) => {
+    // console.log('props.modelValue',props.modelValue)
     if (!newval) {
       activeName.value = (props as any).tabs[0]["label"];
     } else {
@@ -188,6 +190,17 @@ watch(
       min-width: 245px;
       max-width: fit-content;
     }
+  }
+  &.disabled{
+    .l-tabs-box-item{
+      cursor: default;
+      &:hover::after,
+    &.act::after{
+      display: none;
+
+    }
+    }
+
   }
 }
 </style>
