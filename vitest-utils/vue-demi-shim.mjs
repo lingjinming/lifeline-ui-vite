@@ -1,6 +1,7 @@
-// Shim that re-exports everything from the single vue instance
-// used by @vue/test-utils, avoiding version mismatch issues
-export * from '../node_modules/.pnpm/vue@3.2.44/node_modules/vue'
+// Shim that re-exports everything from the single vue instance,
+// 走 vitest.config.ts 中 'vue' 的 alias，确保与 @vue/test-utils、@vue/* 子包
+// 使用同一个 Vue 实例，避免 pnpm 多版本冲突
+export * from 'vue'
 
 export const isVue2 = false
 export const isVue3 = true
