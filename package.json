@@ -47,6 +47,7 @@
   ],
   "author": "lingjinming",
   "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
   "homepage": "https://lifeline-ui-vite.pages.dev",
   "repository": {
     "type": "git",
