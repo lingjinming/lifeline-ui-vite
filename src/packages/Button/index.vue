@@ -50,15 +50,9 @@ export default defineComponent({
     },
   },
   setup(props, ctx) {
-    const padding = computed(() => {
-      if(!props.lIcon && !props.rIcon && !props.name){
-        return '0 15px'
-      }else if(!props.lIcon && !props.rIcon){
-        return '0'
-      }else{
-        return props.name || props.lIcon || props.rIcon ? "0 15px" : "0"
-      }
-    })
+    const padding = computed(() =>
+      (props.lIcon || props.rIcon) ? '0 15px' : '0'
+    )
     const click = () => {
       ctx.emit('click')
     }
