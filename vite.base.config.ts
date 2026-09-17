@@ -39,6 +39,8 @@ export const baseBuildConfig = defineConfig({
     rollupOptions: {
       external: ['vue', '@vue/composition-api/dist/vue-composition-api.mjs'],
       output: {
+        // CSS 输出为 index.css（不带 hash），与 scripts/utils.js 的 switchVersion 保持一致
+        assetFileNames: 'index.[ext]',
         // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
         globals: {
           'vue': 'Vue',
