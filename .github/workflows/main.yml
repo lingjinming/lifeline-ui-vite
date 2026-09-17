@@ -4,32 +4,34 @@ on:
   push:
     branches: [ publish ]
 
+# 避免同分支连续推送时并发发布
+concurrency:
+  group: publish-npm
+  cancel-in-progress: true
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-
     name: 'publish npm'
-
     environment: pnpm
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@v2.1.0
+      # pnpm 版本从 package.json 的 packageManager 字段读取
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          version: 7.2.1
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.0.0
+          node-version: 22
+          cache: pnpm
       - name: Install modules
-        run: pnpm install
-      - name: Build 
-        run: pnpm run build 
-      - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_AUTH_TOKEN }}"
-
-      - name: 'Publish to the npm registry'
+        run: pnpm install --frozen-lockfile
+      - name: Test
+        run: pnpm run test:run
+      - name: Build
+        run: pnpm run build
+      - name: Set npm auth
+        run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_AUTH_TOKEN }}"
+      - name: Publish to the npm registry
         run: npm publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.JM_GITHUB_TOKEN }}

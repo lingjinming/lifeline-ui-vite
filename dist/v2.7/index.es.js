@@ -1,4 +1,4 @@
-import Vue, { defineComponent, computed, ref, watch, useSlots } from "vue";
+import Vue, { defineComponent, computed, ref, useSlots } from "vue";
 const reset = "";
 const index$1 = "";
 Vue.util.warn;
@@ -31,15 +31,7 @@ const _sfc_main$3 = defineComponent({
     }
   },
   setup(props, ctx) {
-    const padding = computed(() => {
-      if (!props.lIcon && !props.rIcon && !props.name) {
-        return "0 15px";
-      } else if (!props.lIcon && !props.rIcon) {
-        return "0";
-      } else {
-        return props.name || props.lIcon || props.rIcon ? "0 15px" : "0";
-      }
-    });
+    const padding = computed(() => props.lIcon || props.rIcon ? "0 15px" : "0");
     const click = () => {
       ctx.emit("click");
     };
@@ -49,7 +41,7 @@ const _sfc_main$3 = defineComponent({
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_4fc28b41_lang = "";
+const index_vue_vue_type_style_index_0_scoped_a63847dc_lang = "";
 function normalizeComponent(scriptExports, render5, staticRenderFns, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
   var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
   if (render5) {
@@ -66,9 +58,7 @@ function normalizeComponent(scriptExports, render5, staticRenderFns, functionalT
   var hook;
   if (moduleIdentifier) {
     hook = function(context) {
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext;
+      context = context || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext;
       if (!context && typeof __VUE_SSR_CONTEXT__ !== "undefined") {
         context = __VUE_SSR_CONTEXT__;
       }
@@ -136,7 +126,7 @@ var _sfc_render$3 = function render() {
   }) : _vm._e()], 2);
 };
 var _sfc_staticRenderFns$3 = [];
-var __component__$3 = /* @__PURE__ */ normalizeComponent(_sfc_main$3, _sfc_render$3, _sfc_staticRenderFns$3, false, null, "4fc28b41", null, null);
+var __component__$3 = /* @__PURE__ */ normalizeComponent(_sfc_main$3, _sfc_render$3, _sfc_staticRenderFns$3, false, null, "a63847dc", null, null);
 const LButton = __component__$3.exports;
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -181,23 +171,19 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     emit
   }) {
     const props = __props;
-    const activeName = ref(props.modelValue);
+    const activeName = computed(() => {
+      if (!props.modelValue) {
+        return props.tabs[0]["label"];
+      } else {
+        return props.modelValue;
+      }
+    });
     const clickTab = (item) => {
       if (!props.clickable)
         return;
-      activeName.value = item.label;
       emit("tab-click", item);
+      emit("update:modelValue", item.label);
     };
-    watch(() => props.modelValue, (newval) => {
-      if (!newval) {
-        activeName.value = props.tabs[0]["label"];
-      } else {
-        activeName.value = newval;
-      }
-    }, {
-      immediate: true,
-      deep: true
-    });
     return {
       __sfc: true,
       props,
@@ -207,14 +193,15 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const index_vue_vue_type_style_index_0_scoped_0b3e297c_lang = "";
+const index_vue_vue_type_style_index_0_scoped_1fae6e5f_lang = "";
 var _sfc_render$2 = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c("section", {
     staticClass: "l-tabs-box",
     class: {
       "is-gap": _vm.gap,
-      "flex-wrap": _vm.wrap
+      "flex-wrap": _vm.wrap,
+      disabled: !_vm.clickable
     },
     style: {
       gap: _vm.gap + "px"
@@ -226,7 +213,7 @@ var _sfc_render$2 = function render2() {
     return _c("div", {
       key: i,
       class: ["l-tabs-box-item", {
-        act: _vm.clickable ? _setup.activeName == item.label : _setup.activeName = ""
+        act: _vm.clickable && _setup.activeName == item.label
       }],
       on: {
         "click": function($event) {
@@ -244,7 +231,7 @@ var _sfc_render$2 = function render2() {
   }), 0);
 };
 var _sfc_staticRenderFns$2 = [];
-var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "0b3e297c", null, null);
+var __component__$2 = /* @__PURE__ */ normalizeComponent(_sfc_main$2, _sfc_render$2, _sfc_staticRenderFns$2, false, null, "1fae6e5f", null, null);
 const LTabs = __component__$2.exports;
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -255,7 +242,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     },
     tit: {
       type: String,
-      default: "默认标题"
+      default: "\u9ED8\u8BA4\u6807\u9898"
     },
     titBg: {
       type: String,

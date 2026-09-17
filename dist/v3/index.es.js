@@ -1,8 +1,8 @@
-import { defineComponent, computed, openBlock, createElementBlock, mergeProps, normalizeClass, createCommentVNode, renderSlot, toDisplayString, ref, watch, normalizeStyle, Fragment, renderList, unref, createElementVNode, useSlots } from "vue";
-var reset = "";
-var index$1 = "";
-var index_vue_vue_type_style_index_0_scoped_true_lang$3 = "";
-var _export_sfc = (sfc, props) => {
+import { defineComponent, computed, openBlock, createElementBlock, mergeProps, normalizeClass, createCommentVNode, renderSlot, toDisplayString, normalizeStyle, Fragment, renderList, unref, createElementVNode, ref, useSlots } from "vue";
+const reset = "";
+const index$1 = "";
+const index_vue_vue_type_style_index_0_scoped_true_lang$3 = "";
+const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
     target[key] = val;
@@ -38,15 +38,7 @@ const _sfc_main$3 = defineComponent({
     }
   },
   setup(props, ctx) {
-    const padding = computed(() => {
-      if (!props.lIcon && !props.rIcon && !props.name) {
-        return "0 15px";
-      } else if (!props.lIcon && !props.rIcon) {
-        return "0";
-      } else {
-        return props.name || props.lIcon || props.rIcon ? "0 15px" : "0";
-      }
-    });
+    const padding = computed(() => props.lIcon || props.rIcon ? "0 15px" : "0");
     const click = () => {
       ctx.emit("click");
     };
@@ -81,8 +73,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     class: normalizeClass(["l-iconfont", "l-icon-" + _ctx.rIcon])
   }, null, 2)) : createCommentVNode("", true)], 16);
 }
-var LButton = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render], ["__scopeId", "data-v-7af75446"]]);
-var index_vue_vue_type_style_index_0_scoped_true_lang$2 = "";
+const LButton = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render], ["__scopeId", "data-v-59daddd3"]]);
+const index_vue_vue_type_style_index_0_scoped_true_lang$2 = "";
 const _hoisted_1$2 = ["data-theme"];
 const _hoisted_2$1 = ["onClick"];
 const _hoisted_3$1 = ["src"];
@@ -132,28 +124,25 @@ const _sfc_main$2 = defineComponent({
     emit
   }) {
     const props = __props;
-    const activeName = ref(props.modelValue);
+    const activeName = computed(() => {
+      if (!props.modelValue) {
+        return props.tabs[0]["label"];
+      } else {
+        return props.modelValue;
+      }
+    });
     const clickTab = (item) => {
       if (!props.clickable)
         return;
-      activeName.value = item.label;
       emit("tab-click", item);
+      emit("update:modelValue", item.label);
     };
-    watch(() => props.modelValue, (newval) => {
-      if (!newval) {
-        activeName.value = props.tabs[0]["label"];
-      } else {
-        activeName.value = newval;
-      }
-    }, {
-      immediate: true,
-      deep: true
-    });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("section", {
         class: normalizeClass(["l-tabs-box", {
           "is-gap": __props.gap,
-          "flex-wrap": __props.wrap
+          "flex-wrap": __props.wrap,
+          disabled: !__props.clickable
         }]),
         "data-theme": __props.dataTheme,
         style: normalizeStyle({
@@ -163,7 +152,7 @@ const _sfc_main$2 = defineComponent({
         return openBlock(), createElementBlock("div", {
           key: i,
           class: normalizeClass(["l-tabs-box-item", {
-            act: __props.clickable ? unref(activeName) == item.label : activeName.value = ""
+            act: __props.clickable && unref(activeName) == item.label
           }]),
           onClick: ($event) => clickTab(item)
         }, [item.img ? (openBlock(), createElementBlock("img", {
@@ -175,8 +164,8 @@ const _sfc_main$2 = defineComponent({
     };
   }
 });
-var LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-2b2fa3ba"]]);
-var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
+const LTabs = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-2006c658"]]);
+const index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
 const _hoisted_1$1 = ["data-theme"];
 const _sfc_main$1 = defineComponent({
   __name: "index",
@@ -243,8 +232,8 @@ const _sfc_main$1 = defineComponent({
     };
   }
 });
-var LWrap = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-07f61fe4"]]);
-var index_vue_vue_type_style_index_0_scoped_true_lang = "";
+const LWrap = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-07f61fe4"]]);
+const index_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _hoisted_1 = ["data-theme"];
 const _hoisted_2 = {
   key: 0,
@@ -321,8 +310,8 @@ const _sfc_main = defineComponent({
     };
   }
 });
-var LDetail = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-d3b07884"]]);
-var index = {
+const LDetail = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-d3b07884"]]);
+const index = {
   install(app, options) {
     app.component("LButton", LButton);
     app.component("LTabs", LTabs);
@@ -330,4 +319,10 @@ var index = {
     app.component("LDetail", LDetail);
   }
 };
-export { LButton, LDetail, LTabs, LWrap, index as default };
+export {
+  LButton,
+  LDetail,
+  LTabs,
+  LWrap,
+  index as default
+};
