@@ -21,6 +21,10 @@ npm run build
 # Lint 修复
 npm run lint:fix
 
+# 测试
+npm run test        # vitest watch 模式
+npm run test:run    # 单次运行全部测试
+
 # 文档开发/构建
 npm run docs:dev
 npm run docs:build
@@ -66,6 +70,12 @@ pnpm workspace 包含三个 playground：
 ### Build Output
 
 构建产生 ES、CJS、UMD 三种格式，`vue` 和 `@vue/composition-api` 作为 external 处理。
+
+### Testing
+
+- 使用 Vitest + @vue/test-utils + jsdom
+- 测试文件位于各组件的 `__tests__/` 目录下
+- `vitest.config.ts` 配置了 vue-demi shim 以解决 pnpm 多版本 Vue 冲突（`vitest-utils/vue-demi-shim.mjs`）
 
 ## Key Conventions
 
